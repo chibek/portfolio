@@ -10,8 +10,27 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.0.0-beta.1",
     "@astrojs/check": "^0.9.3",
+    "@astrojs/tailwind": "^5.1.1",
+    "astro": "^5.0.0-beta.1",
+    "clsx": "^2.1.1",
+    "sal.js": "^0.8.5",
     "typescript": "^5.6.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.15",
+    "@typescript-eslint/eslint-plugin": "^8.6.0",
+    "@typescript-eslint/parser": "^8.6.0",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.11.0",
+    "eslint-plugin-astro": "^1.2.4",
+    "eslint-plugin-jsx-a11y": "^6.10.0",
+    "postcss": "^8.4.47",
+    "postcss-nesting": "^13.0.0",
+    "prettier": "^3.3.3",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-tailwindcss": "^0.6.6",
+    "tailwindcss": "^3.4.12",
+    "tailwindcss-debug-screens": "^2.2.1"
   }
 }
