@@ -1,18 +1,19 @@
 ---
-const pages = [
-  { name: "Experience", href: "/" },
-  { name: "Projects", href: "/combates" },
-  { name: "About", href: "/pronosticos" },
-  { name: "Contact", href: "/pronosticos" }
+import { cn } from "../lib/utils";
+import PageLinks from "./header/PageLinks.astro";
+
+const sections = [
+  { name: "Home", href: "/" },
+  { name: "About", href: "#about" },
+  { name: "Contact", href: "#contact" },
+  { name: "Blog", href: "#blog" }
 ];
+interface Props {
+  class?: string;
+}
+const { class: className } = Astro.props;
 ---
 
-<header>
-  <nav>
-    <a>About</a>
-    <a>About</a>
-    <a>About</a>
-    <a>About</a>
-    <a>About</a>
-  </nav>
-</header>
+  <header class={cn("h-header", className)}>
+    <PageLinks pages={sections} />
+  </header>

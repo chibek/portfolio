@@ -1,0 +1,79 @@
+---
+import avatar from "@assets/hero/avatar.webp";
+import { Picture } from "astro:assets";
+import { Github, Linkedin, ScrollText } from "lucide-astro";
+import Button from "../components/Button.astro";
+---
+
+<section class="border border-black bg-red-200">
+  <Picture
+    class="relative right-0.5 top-0.5 mb-9 aspect-square size-16"
+    src={avatar}
+    alt="Avatar"
+    loading="eager"
+    formats={["avif", "webp", "png"]}
+  />
+
+  <div
+    data-sal="slide-up"
+    data-sal-delay="300"
+    data-sal-easing="ease-out-back"
+    data-sal-once="false"
+  >
+    <div class="font-neutralFace ~text-3xl/5xl">
+      <h1>I'm Sergio</h1>
+      <h1>Full Stack Developer</h1>
+    </div>
+
+    <p class="my-6">
+      Specialized in game development, yet also passionate about developing any
+      kind of software. With 6+ years of coding expertise, I am currently
+      seeking to leverage my 4+ years of professional experience to transition
+      into backend development.
+    </p>
+  </div>
+  <div class="flex gap-4 items-center divide-x-2 divide-black">
+    <span class="relative flex">
+      <span
+        class="absolute size-2 inline-flex animate-ping rounded-full bg-green-400 opacity-75"
+       />
+      <span>Available for work</span>
+    </span>
+    <div class="flex gap-2">
+      <Button
+        class="bg-white"
+        data-tip="Github"
+        data-tip-placement="bottom"
+      >
+        <Github
+          class="group-hover:text-white z-10 relative transition-colors duration-300"
+          size={24}
+          strokeWidth={2}
+        />
+        <span
+          class="absolute top-0 left-0 w-full bg-black group-hover:animate-[fill-up_0.3s_linear_forwards]"
+         />
+      </Button>
+
+      <Button
+        class="bg-white"
+        data-tip="Linkedin"
+        data-tip-placement="bottom"
+      >
+        <Linkedin
+          class="group-hover:text-white z-10 relative transition-colors duration-300"
+          size={24}
+          strokeWidth={2}
+        />
+        <span
+          class="absolute top-0 left-0 w-full bg-blue-600 group-hover:animate-[fill-up_0.3s_linear_forwards]"
+         />
+      </Button>
+
+      <ScrollText
+        size={32}
+        strokeWidth={1.5}
+      />
+    </div>
+  </div>
+</section>

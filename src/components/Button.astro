@@ -1,0 +1,37 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { cva } from "class-variance-authority";
+import { cn } from "../lib/utils";
+
+type Props = HTMLAttributes<"a"> & {
+  class?: string;
+  withTooltip?: boolean;
+};
+
+const buttonVariants = cva("group relative transition-all duration-500", {
+  variants: {
+    variant: {
+      default:
+        "rounded-full overflow-hidden flex items-center justify-center p-2",
+    },
+  },
+  defaultVariants: {
+    variant: "default",
+  },
+});
+
+const { href, class: className, ...props } = Astro.props;
+---
+
+<a
+  {href}
+  class={cn(buttonVariants({ variant: "default" }), className)}
+  {...props}
+>
+  <slot />
+</a>
+
+<style>
+  a[data-tip] {
+  }
+</style>

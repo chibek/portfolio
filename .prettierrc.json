@@ -1,5 +1,4 @@
 {
-  "trailingComma": "none",
   "overrides": [
     {
       "files": "*.svg",
@@ -15,7 +14,18 @@
     }
   ],
   "plugins": [
-    "prettier-plugin-astro",
     "prettier-plugin-tailwindcss"
-  ]
+  ],
+  "astroAllowShorthand": true,
+  "bracketSpacing": true,
+  "bracketSameLine": false,
+  "printWidth": 80,
+  "quoteProps": "consistent",
+  "semi": true,
+  "singleQuote": false,
+  "singleAttributePerLine": true,
+  "tabWidth": 2,
+  "trailingComma": "all",
+  "useTabs": false,
+  "closeEmptyJsxElements": true
 }

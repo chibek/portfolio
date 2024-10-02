@@ -1,9 +1,10 @@
 {
   "files.autoSave": "onFocusChange",
   "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   "editor.codeActionsOnSave": {
-    "source.organizeImports": "explicit"
+    "source.organizeImports": "explicit",
+    "source.fixAll.eslint": "always"
   },
   "eslint.validate": [
     "javascript",
@@ -12,5 +13,11 @@
     "typescript", // Enable .ts
     "typescriptreact" // Enable .tsx
   ],
-  "prettier.documentSelectors": ["**/*.svg", "**/*.astro"]
+  "prettier.documentSelectors": [
+    "**/*.svg",
+    "**/*.astro"
+  ],
+  "[astro]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

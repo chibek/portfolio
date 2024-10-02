@@ -1,0 +1,22 @@
+@import "./theme.css";
+@import "./normalize.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /** If dvh is supported, it will take priority, otherwise will fallback to vh. */
+  --screen-safe-height: 100vh;
+  --screen-safe-height: 100dvh;
+  --screen-safe-width: 100vw;
+  --screen-safe-width: 100dvw;
+
+  --header-height: 64px;
+  --content-height: calc(var(--screen-safe-height) - var(--header-height));
+}
+
+html {
+  width: var(--screen-safe-width);
+  height: auto;
+}

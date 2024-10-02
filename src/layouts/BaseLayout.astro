@@ -1,10 +1,11 @@
 ---
-import "@styles/global.css";
-import "@styles/theme.css";
+import "@styles/index.css";
+import "tippy.js/dist/tippy.css";
+import 'tippy.js/animations/scale.css';
 import { ENVIRONMENT } from "astro:env/client";
 import { ClientRouter } from "astro:transitions";
-import { clsx } from "clsx";
 import Header from "../components/Header.astro";
+import { cn } from "../lib/utils";
 
 interface Props {
   title: string;
@@ -15,30 +16,63 @@ const { title, description } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" class="overflow-x-hidden font-geist">
+<html
+  lang="en"
+  class="overflow-x-hidden font-geist"
+>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="description" content={description} />
+    <meta
+      name="viewport"
+      content="width=device-width"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/favicon.svg"
+    />
+    <meta
+      name="description"
+      content={description}
+    />
     <title>{title}</title>
     <ClientRouter />
+
+    <script>
+      import tippy, { type Placement } from "tippy.js";
+      
+      document.addEventListener("astro:page-load", () => {
+        const tips = document.querySelectorAll("[data-tip]");
+        tips.forEach((t) => {
+          if (t.tagName == "SPAN" || t.tagName == "DIV") {
+            t.setAttribute("tabindex", "0");
+          }
+          tippy(t, {
+            content: t.getAttribute("data-tip") || "",
+            placement: t.getAttribute("data-tip-placement") as Placement || "top",
+            arrow: false,
+            animation: 'scale',
+            duration: [250, null],
+          });
+        });
+      });
+    </script>
   </head>
   <body
-    class={clsx("overflow-x-hidden", {
-      "debug-screens": ENVIRONMENT === "dev"
+    class={cn("overflow-x-hidden antialiased", {
+      "debug-screens": ENVIRONMENT === "dev",
     })}
   >
-    <div
-      class="inset-0 -z-10 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:34px_24px]"
+    <Header class="fixed inset-0 top-0 z-10 bg-blue-200" />
+    <main
+      class="min-h-main mt-header mx-auto max-w-screen-lg space-y-36 px-8 py-16"
     >
-      <main
-        class="mx-auto min-h-screen max-w-7xl rounded-lg border px-4 font-geist shadow-lg sm:px-8 lg:px-12"
-        id="main-content"
-      >
-        <Header />
-        <slot />
-      </main>
-    </div>
+      <slot />
+    </main>
+    <script>
+      import sal from "sal.js";
+
+      sal();
+    </script>
   </body>
 </html>
