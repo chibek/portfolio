@@ -1,39 +1,39 @@
-function defineSkill<const Name extends string>(name: Name) {
-  const skillsSubDir = "icons";
-  const filename = name.toLowerCase().replace(" ", "-");
+import type { Icon } from "virtual:astro-icon";
 
+function defineSkill<const Name extends string>(name: Name) {
+  const filename = name.toLowerCase().replace(" ", "-");
   return {
     name,
     i18nKey: filename,
-    icon: `${skillsSubDir}/${filename}` as const,
+    icon: `${filename}` as Icon,
   };
 }
 
 export const skills = [
-  defineSkill("AWS"),
-  defineSkill("JavaScript"),
-  defineSkill("TypeScript"),
-  defineSkill("CSS"),
-  defineSkill("PHP"),
-  defineSkill("React Native"),
-  defineSkill("React"),
-  defineSkill("Next.js"),
-  defineSkill("NodeJS"),
-  defineSkill("Astro"),
-  defineSkill("TailwindCSS"),
-  defineSkill("MySQL"),
-  defineSkill("Github"),
-  defineSkill("Git"),
-  defineSkill("Docker"),
-  defineSkill("Communication"),
-  defineSkill("Analytical Thinking"),
-  defineSkill("Teamwork"),
+  defineSkill("aws"),
+  defineSkill("javascript"),
+  defineSkill("typescript"),
+  defineSkill("css"),
+  defineSkill("php"),
+  defineSkill("react"),
+  defineSkill("nextjs"),
+  defineSkill("nodejs"),
+  defineSkill("astro"),
+  defineSkill("tailwindcss"),
+  defineSkill("mysql"),
+  defineSkill("git"),
+  defineSkill("docker"),
+  defineSkill("communication"),
+  defineSkill("analytical thinking"),
+  defineSkill("teamwork"),
   defineSkill("azure"),
   defineSkill("gitlab"),
   defineSkill("jest"),
   defineSkill("redux"),
   defineSkill("postgressql"),
+  defineSkill("express"),
+  defineSkill("html"),
+  defineSkill("scrum"),
 ] as const;
 
-/** The list with all the skill names. */
 export type SkillName = (typeof skills)[number]["name"];

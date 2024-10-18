@@ -1,0 +1,43 @@
+---
+import { type SkillName } from "@lib/skill-icons";
+import MainTechs from "./MainTechs.astro";
+const frontend: SkillName[] = [
+  "react",
+  "typescript",
+  "tailwindcss",
+  "html",
+  "css",
+  "jest",
+  "javascript",
+];
+const backend: SkillName[] = [
+  "nodejs",
+  "express",
+  "postgressql",
+  "aws",
+  "gitlab",
+];
+
+const softSkills: SkillName[] = [
+  "communication",
+  "analytical thinking",
+  "scrum",
+];
+
+const { translations } = Astro.locals;
+const t = translations.sections.technologies;
+---
+
+<section>
+  <h2
+    class="my-12 ml-2 inline-flex w-full items-center text-pretty font-header text-3xl font-semibold opacity-85 sm:ml-0"
+  >
+    <span>{t.title}</span>
+    <span class="ml-[0.6em] mt-1 h-0.5 grow translate-y-full bg-muted"></span>
+  </h2>
+  <div class="grid grid-cols-[repeat(auto-fit,minmax(25rem,1fr))] gap-y-6">
+    <MainTechs title={t.frontend} skills={frontend} />
+    <MainTechs title={t.backend} skills={backend} />
+    <MainTechs title={t.softSkills} skills={softSkills} />
+  </div>
+</section>

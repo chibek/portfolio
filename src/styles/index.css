@@ -1,5 +1,6 @@
 @import "./theme.css";
 @import "./normalize.css";
+@import "./sal.css";
 
 @tailwind base;
 @tailwind components;
@@ -19,11 +20,16 @@
 
 main {
   counter-reset: section;
+  @apply transition-colors duration-200;
 }
 
 html {
   width: var(--screen-safe-width);
   height: auto;
+}
+
+strong {
+  @apply text-primary;
 }
 
 h2::before {

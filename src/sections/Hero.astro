@@ -1,79 +1,70 @@
 ---
-import avatar from "@assets/hero/avatar.webp";
-import Button from "@components/Button.astro";
-import { Picture } from "astro:assets";
-import { Github, Linkedin, ScrollText } from "lucide-astro";
+import { Icon } from "astro-icon/components";
+import { type Icon as IconProps } from "virtual:astro-icon";
+
+export interface SocialData {
+  href: string;
+  size?: number;
+  iconKey: IconProps;
+  i18nKey: string;
+}
+
+const socials = [
+  {
+    href: "https://www.linkedin.com/in/sergio-bele%C3%B1a-boix-067158126/",
+    i18nKey: "LinkedIn",
+    iconKey: "lucide:linkedin",
+  },
+  {
+    href: "https://github.com/chibek",
+    i18nKey: "Github",
+    iconKey: "lucide:github",
+  },
+  {
+    href: "sergi.bele@hotmail.com",
+    i18nKey: "Email",
+    iconKey: "lucide:mail",
+  },
+] as const satisfies SocialData[];
+
+const { translations } = Astro.locals;
+const t = translations.sections.hero;
 ---
 
 <section>
-  <Picture
-    class="relative right-0.5 top-0.5 mb-9 aspect-square size-16"
-    src={avatar}
-    alt="Avatar"
-    loading="eager"
-    formats={["avif", "webp", "png"]}
-  />
-
   <div
     data-sal="slide-up"
     data-sal-delay="300"
     data-sal-easing="ease-out-back"
     data-sal-once="false"
   >
-    <div class="font-neutralFace ~text-3xl/5xl">
-      <h1>I'm Sergio</h1>
-      <h1>Full Stack Developer</h1>
+    <div class="font-neutralFace ~text-2xl/4xl">
+      <h1 class="max-w-4xl" set:html={t.headline} />
     </div>
 
-    <p class="my-6">
-      Specialized in game development, yet also passionate about developing any
-      kind of software. With 6+ years of coding expertise, I am currently
-      seeking to leverage my 4+ years of professional experience to transition
-      into backend development.
-    </p>
+    <p class="my-6 text-muted-foreground text-lg" set:html={t.description} />
   </div>
-  <div class="flex gap-4 items-center divide-x-2 divide-black">
-    <span class="relative flex">
-      <span
-        class="absolute size-2 inline-flex animate-ping rounded-full bg-green-400 opacity-75"
-       />
-      <span>Available for work</span>
-    </span>
+  <div class="flex gap-4 items-center justify-end">
     <div class="flex gap-2">
-      <Button
-        class="bg-white"
-        data-tip="Github"
-        data-tip-placement="bottom"
-      >
-        <Github
-          class="group-hover:text-white z-10 relative transition-colors duration-300"
-          size={24}
-          strokeWidth={2}
-        />
-        <span
-          class="absolute top-0 left-0 w-full bg-black group-hover:animate-[fill-up_0.3s_linear_forwards]"
-         />
-      </Button>
-
-      <Button
-        class="bg-white"
-        data-tip="Linkedin"
-        data-tip-placement="bottom"
-      >
-        <Linkedin
-          class="group-hover:text-white z-10 relative transition-colors duration-300"
-          size={24}
-          strokeWidth={2}
-        />
-        <span
-          class="absolute top-0 left-0 w-full bg-blue-600 group-hover:animate-[fill-up_0.3s_linear_forwards]"
-         />
-      </Button>
-
-      <ScrollText
-        size={32}
-        strokeWidth={1.5}
-      />
+      {
+        socials.map(({ href, i18nKey, iconKey }) => (
+          <a
+            href={href}
+            target="_blank"
+            class:list={[
+              "rounded-lg text-foreground/80 transition duration-200",
+              "hover:bg-accent",
+            ]}
+            data-tip={i18nKey}
+            data-tip-placement="bottom"
+          >
+            <Icon
+              name={iconKey}
+              class="box-content size-6 p-2 text-current sm:size-7 md:size-8"
+            />
+          </a>
+        ))
+      }
     </div>
   </div>
 </section>

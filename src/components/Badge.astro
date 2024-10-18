@@ -5,14 +5,14 @@ import type { HTMLAttributes } from "astro/types";
 export type Props = HTMLAttributes<"span"> & {
   hoverGlow?: boolean;
 };
-const { class: clazz, hoverGlow = false, ...props } = Astro.props;
+const { class: className, hoverGlow = false, ...props } = Astro.props;
 ---
 
 <span
   class={cn(
     "group/badge inline-flex items-center justify-center rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-card-foreground",
-    { "relative": hoverGlow, "overflow-hidden": hoverGlow },
-    clazz,
+    { relative: hoverGlow, "overflow-hidden": hoverGlow },
+    className
   )}
   {...props}
 >

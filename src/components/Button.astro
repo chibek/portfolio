@@ -5,7 +5,6 @@ import { cva } from "class-variance-authority";
 
 type Props = HTMLAttributes<"a"> & {
   class?: string;
-  withTooltip?: boolean;
 };
 
 const buttonVariants = cva("group relative transition-all duration-500", {
@@ -30,8 +29,3 @@ const { href, class: className, ...props } = Astro.props;
 >
   <slot />
 </a>
-
-<style>
-  a[data-tip] {
-  }
-</style>

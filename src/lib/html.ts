@@ -9,7 +9,7 @@
 export function link<const H extends string, const T extends string>(
   href: H,
   text: T,
-  targetBlank = false,
+  targetBlank = false
 ) {
   return `<a href="${href}"${targetBlank ? ' target="_blank" rel="noopener noreferrer"' : ""}>${text}</a>` as const;
 }
@@ -65,6 +65,19 @@ export function quote<const T extends string>(content: T) {
 }
 
 /**
+ * Wraps the provided content in a <ul> and <li> HTML tag.
+ *
+ * @param content - The content to be wrapped.
+ * @returns The HTML string representing the list element.
+ */
+export function list<const T extends string[]>(content: T) {
+  const listElements = content.map((listElement) =>
+    wrapInTags(listElement, "li")
+  );
+  return wrapInTags(listElements, "ul");
+}
+
+/**
  * Wraps the given content in HTML tags.
  *
  * @param content - The content to be wrapped.
@@ -72,8 +85,11 @@ export function quote<const T extends string>(content: T) {
  * @returns The content wrapped in the specified HTML tag.
  */
 function wrapInTags<const T extends string, const Tag extends string>(
-  content: T,
-  tag: Tag,
+  content: T | T[],
+  tag: Tag
 ) {
+  if (Array.isArray(content)) {
+    return `<${tag}>${content.join("")}</${tag}>` as const;
+  }
   return `<${tag}>${content}</${tag}>` as const;
 }

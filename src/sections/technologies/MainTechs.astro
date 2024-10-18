@@ -1,0 +1,26 @@
+---
+import type { SkillName } from "@lib/skill-icons";
+import { cn } from "@lib/utils";
+import WorkSkill from "@sections/work/WorkSkill.astro";
+
+interface Props {
+  title: string;
+  skills: SkillName[];
+  class?: string;
+}
+
+const { title, skills, class: className } = Astro.props;
+---
+
+<div class={cn("space-y-2 px-2", className)}>
+  <h3 class="font-semibold text-2xl">{title}</h3>
+  <ul class="flex flex-wrap gap-2 max-w-md">
+    {
+      skills.map((skill) => (
+        <li>
+          <WorkSkill skillName={skill} />
+        </li>
+      ))
+    }
+  </ul>
+</div>

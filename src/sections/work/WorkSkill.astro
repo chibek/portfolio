@@ -1,0 +1,39 @@
+---
+import { Icon } from "astro-icon/components";
+
+import { Badge, type BadgeProps } from "@components/index";
+import { skills, type SkillName } from "@lib/skill-icons";
+import { cn } from "@lib/utils";
+
+export type Props = BadgeProps & {
+  skillName: SkillName;
+  showText?: boolean;
+};
+const { translations } = Astro.locals;
+const t = translations.skills;
+const { skillName, class: className, showText = true, ...props } = Astro.props;
+const skill = skills.find((skill) => skill.name === skillName)!;
+
+const tooltip = showText
+  ? {}
+  : {
+      "data-tip": skill.name,
+      "data-tip-placement": "bottom",
+    };
+---
+
+{
+  skill && (
+    <Badge
+      {...props}
+      class={cn(
+        "select-none space-x-2 whitespace-nowrap px-4 py-2 font-semibold",
+        className
+      )}
+      {...tooltip}
+    >
+      <Icon name={skill.icon} class="size-5 flex-none" is:inline />
+      {showText && <span>{t[skill.name]}</span>}
+    </Badge>
+  )
+}

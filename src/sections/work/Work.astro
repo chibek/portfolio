@@ -1,7 +1,7 @@
 ---
 import { cn } from "@lib/utils";
-import Badge from "../../components/Badge.astro";
 import type { SkillName } from "../../lib/skill-icons";
+import WorkSkill from "./WorkSkill.astro";
 
 export interface WorkProps {
   title: string;
@@ -9,7 +9,7 @@ export interface WorkProps {
   location: string;
   startDate: string;
   endDate?: string;
-  description: string;
+  description: string[];
   skills: SkillName[];
 }
 
@@ -27,9 +27,11 @@ const {
   skills,
   class: className,
 } = Astro.props;
+const { translations } = Astro.locals;
+const t = translations.sections.experience;
 ---
 
-<article class={cn("prose", className)}>
+<article id="work" class={cn("prose", className)}>
   <header class="mb-8 space-y-3">
     <h3 class="mt-0">{title}{", "}{company}</h3>
     <div
@@ -40,14 +42,14 @@ const {
       <span>
         <time datetime={startDate}> {startDate} </time>
         {" - "}
-        <time datetime={endDate}> {endDate ? endDate : "Present"} </time>
+        <time datetime={endDate}> {endDate ? endDate : `${t.present}`} </time>
       </span>
     </div>
   </header>
-  <p>
-    {description}
-  </p>
-  <footer>
-    {skills.map((skill) => <Badge>{skill}</Badge>)}
+  <div>
+    {description.map((paragraph) => <p set:html={paragraph} />)}
+  </div>
+  <footer class="flex flex-wrap gap-2">
+    {skills.map((skill) => <WorkSkill skillName={skill} />)}
   </footer>
 </article>

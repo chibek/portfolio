@@ -1,0 +1,18 @@
+---
+import Timeline from "@components/timeline/Timeline.astro";
+
+const { translations } = Astro.locals;
+const t = translations.sections.experience;
+
+const workArray = Object.values(t.jobs);
+---
+
+<section>
+  <h2
+    class="my-12 ml-2 inline-flex w-full items-center text-pretty font-header text-3xl font-semibold opacity-85 sm:ml-0"
+  >
+    <span>{t.title}</span>
+    <span class="ml-[0.6em] mt-1 h-0.5 grow translate-y-full bg-muted"></span>
+  </h2>
+  <Timeline works={workArray} />
+</section>

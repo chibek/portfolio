@@ -1,7 +1,7 @@
 ---
 import "@styles/index.css";
 import "tippy.js/dist/tippy.css";
-import 'tippy.js/animations/scale.css';
+import "tippy.js/animations/scale.css";
 import { ENVIRONMENT } from "astro:env/client";
 import { ClientRouter } from "astro:transitions";
 import Header from "@components/header/Header.astro";
@@ -13,34 +13,22 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
+const { locale } = Astro.locals;
 ---
 
 <!doctype html>
-<html
-  lang="en"
-  class="overflow-x-hidden font-geist"
->
+<html lang={locale} class="overflow-x-hidden font-geist">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width"
-    />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="/favicon.svg"
-    />
-    <meta
-      name="description"
-      content={description}
-    />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="description" content={description} />
     <title>{title}</title>
     <ClientRouter />
 
     <script>
       import tippy, { type Placement } from "tippy.js";
-      
+
       document.addEventListener("astro:page-load", () => {
         const tips = document.querySelectorAll("[data-tip]");
         tips.forEach((t) => {
@@ -49,9 +37,10 @@ const { title, description } = Astro.props;
           }
           tippy(t, {
             content: t.getAttribute("data-tip") || "",
-            placement: t.getAttribute("data-tip-placement") as Placement || "top",
+            placement:
+              (t.getAttribute("data-tip-placement") as Placement) || "top",
             arrow: false,
-            animation: 'scale',
+            animation: "scale",
             duration: [250, null],
           });
         });
@@ -64,9 +53,7 @@ const { title, description } = Astro.props;
     })}
   >
     <Header class="fixed inset-0 top-0 z-10 bg-blue-200" />
-    <main
-      class="min-h-main mt-header mx-auto max-w-screen-lg px-8 py-16"
-    >
+    <main class="min-h-main mt-header mx-auto max-w-screen-lg px-8 py-16">
       <slot />
     </main>
     <script>
@@ -78,31 +65,30 @@ const { title, description } = Astro.props;
 </html>
 <style is:global>
   @font-face {
-  font-family: "Geist";
-  src: url("/fonts/Geist-Bold.woff2") format("woff2");
-  font-weight: 700;
-  font-style: normal;
-}
+    font-family: "Geist";
+    src: url("/fonts/Geist-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+  }
 
-@font-face {
-  font-family: "Geist";
-  src: url("/fonts/Geist-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-}
+  @font-face {
+    font-family: "Geist";
+    src: url("/fonts/Geist-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+  }
 
-@font-face {
-  font-family: "Geist";
-  src: url("/fonts/Geist-SemiBold.woff2") format("woff2");
-  font-weight: 600;
-  font-style: normal;
-}
+  @font-face {
+    font-family: "Geist";
+    src: url("/fonts/Geist-SemiBold.woff2") format("woff2");
+    font-weight: 600;
+    font-style: normal;
+  }
 
-@font-face {
-  font-family: "NeutralFace";
-  src: url("/fonts/NeutralFace-Bold.otf") format("opentype");
-  font-weight: 700;
-  font-style: normal;
-}
-
+  @font-face {
+    font-family: "NeutralFace";
+    src: url("/fonts/NeutralFace-Bold.otf") format("opentype");
+    font-weight: 700;
+    font-style: normal;
+  }
 </style>
