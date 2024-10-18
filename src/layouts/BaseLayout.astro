@@ -4,8 +4,8 @@ import "tippy.js/dist/tippy.css";
 import 'tippy.js/animations/scale.css';
 import { ENVIRONMENT } from "astro:env/client";
 import { ClientRouter } from "astro:transitions";
-import Header from "../components/Header.astro";
-import { cn } from "../lib/utils";
+import Header from "@components/header/Header.astro";
+import { cn } from "@lib/utils";
 
 interface Props {
   title: string;
@@ -65,7 +65,7 @@ const { title, description } = Astro.props;
   >
     <Header class="fixed inset-0 top-0 z-10 bg-blue-200" />
     <main
-      class="min-h-main mt-header mx-auto max-w-screen-lg space-y-36 px-8 py-16"
+      class="min-h-main mt-header mx-auto max-w-screen-lg px-8 py-16"
     >
       <slot />
     </main>
@@ -76,3 +76,33 @@ const { title, description } = Astro.props;
     </script>
   </body>
 </html>
+<style is:global>
+  @font-face {
+  font-family: "Geist";
+  src: url("/fonts/Geist-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Geist";
+  src: url("/fonts/Geist-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Geist";
+  src: url("/fonts/Geist-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "NeutralFace";
+  src: url("/fonts/NeutralFace-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+</style>

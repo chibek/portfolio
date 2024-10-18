@@ -14,9 +14,28 @@
 
   --header-height: 64px;
   --content-height: calc(var(--screen-safe-height) - var(--header-height));
+  interpolate-size: allow-keywords;
+}
+
+main {
+  counter-reset: section;
 }
 
 html {
   width: var(--screen-safe-width);
   height: auto;
+}
+
+h2::before {
+  @apply tabular-nums;
+
+  counter-increment: section;
+  content: "0" counter(section) ". ";
+  opacity: 0.9;
+
+  margin-top: 0.1em;
+  margin-right: 0.5em;
+
+  font-size: 0.8em;
+  font-family: theme("fontFamily.neutralFace");
 }

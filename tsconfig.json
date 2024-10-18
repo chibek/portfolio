@@ -9,6 +9,8 @@
       "@/*": ["./src/*"],
       "@styles/*": ["./src/styles/*"],
       "@assets/*": ["./public/assets/*"],
+      "@components/*": ["./src/components/*"],
+      "@sections/*": ["./src/sections/*"],
       "@lib/*": ["./src/lib/*"]
     },
 

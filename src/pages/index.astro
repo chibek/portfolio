@@ -1,9 +1,12 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import Hero from "../sections/Hero.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Hero from "@sections/Hero.astro";
+import Technologies from "@sections/Technologies.astro";
+import Works from "@sections/works/Works.astro";
 ---
 
   <BaseLayout title="Astro" description="Welcome to the Astro blog">
     <Hero />
-  <!-- <RecentWorked /> -->
+    <Technologies/>
+    <Works />
   </BaseLayout>

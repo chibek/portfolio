@@ -1,0 +1,53 @@
+---
+import { cn } from "@lib/utils";
+import Badge from "../../components/Badge.astro";
+import type { SkillName } from "../../lib/skill-icons";
+
+export interface WorkProps {
+  title: string;
+  company: string;
+  location: string;
+  startDate: string;
+  endDate?: string;
+  description: string;
+  skills: SkillName[];
+}
+
+interface Props extends WorkProps {
+  class?: string;
+}
+
+const {
+  title,
+  company,
+  location,
+  startDate,
+  endDate,
+  description,
+  skills,
+  class: className,
+} = Astro.props;
+---
+
+<article class={cn("prose", className)}>
+  <header class="mb-8 space-y-3">
+    <h3 class="mt-0">{title}{", "}{company}</h3>
+    <div
+      class="text-pretty text-base font-semibold text-muted-foreground/70 transition-colors duration-200"
+    >
+      <span>{location} </span>
+      <span class="opacity-50">{" | "}</span>
+      <span>
+        <time datetime={startDate}> {startDate} </time>
+        {" - "}
+        <time datetime={endDate}> {endDate ? endDate : "Present"} </time>
+      </span>
+    </div>
+  </header>
+  <p>
+    {description}
+  </p>
+  <footer>
+    {skills.map((skill) => <Badge>{skill}</Badge>)}
+  </footer>
+</article>

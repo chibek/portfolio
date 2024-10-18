@@ -1,0 +1,58 @@
+---
+import type { WorkProps } from "@sections/works/Work.astro";
+import Work from "@sections/works/Work.astro";
+import { ChevronDown } from "lucide-astro";
+import TimelineItem from "./TimelineItem.astro";
+
+interface Props {
+  works: WorkProps[];
+}
+
+const { works } = Astro.props;
+
+const lastTwoWorks = works?.slice(-2) ?? [];
+const restWorks = works?.slice(0, -2) ?? [];
+---
+<div>
+  {
+    restWorks.map((work) => (
+      <TimelineItem>
+        <Work {...work} />
+      </TimelineItem>
+    ))
+  }
+
+  <!-- Collapse -->
+  <div
+    class="w-full overflow-hidden transition-[height] duration-500 h-0 [&:has(~_label>input:checked)]:h-auto"
+    id="collapse-box"
+    aria-expanded="false"
+  >
+  {
+    lastTwoWorks.map((work) => (
+      <TimelineItem>
+        <Work {...work} />
+      </TimelineItem>
+    ))
+  }
+  </div>
+  <!-- End Collapse -->
+
+  <!-- Show more button -->
+  <label class="ps-[7px] gap-x-3 inline-flex">
+    <input
+      class="peer absolute scale-0"
+      type="checkbox"
+    />
+    <span
+      class="group cursor-pointer text-start bg-blue-200 flex px-4 py-2 rounded-lg"
+    >
+      <span class="peer-checked:group-[]:hidden">Show more</span>
+      <span class="peer-checked:group-[]:block hidden">Show less</span>
+      <ChevronDown
+        class="transition-transform duration-300 peer-checked:group-[]:-rotate-180"
+      />
+    </span>
+  </label>
+  <!-- Show more button  -->
+</div>
