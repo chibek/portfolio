@@ -1,12 +1,13 @@
 ---
 import { cn } from "@lib/utils";
 import PageLinks from "./PageLinks.astro";
+import SelectI18N from "./SelectI18n.astro";
 
 const sections = [
   { name: "Home", href: "/" },
+  { name: "Stack", href: "#stack" },
+  { name: "Work", href: "#work" },
   { name: "About", href: "#about" },
-  { name: "Contact", href: "#contact" },
-  { name: "Blog", href: "#blog" }
 ];
 interface Props {
   class?: string;
@@ -14,6 +15,23 @@ interface Props {
 const { class: className } = Astro.props;
 ---
 
-  <header class={cn("h-header", className)}>
+<header class={cn("h-header", className)}>
+  <div class="flex justify-between max-w-5xl items-center mx-auto h-full">
     <PageLinks pages={sections} />
-  </header>
+    <SelectI18N />
+  </div>
+</header>
+
+<style>
+  header {
+    animation: apply-bg linear both;
+    animation-timeline: scroll();
+    animation-range: 0px 128px;
+  }
+
+  @keyframes apply-bg {
+    to {
+      background-color: theme("colors.background");
+    }
+  }
+</style>

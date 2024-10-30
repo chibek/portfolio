@@ -14,15 +14,21 @@
   "dependencies": {
     "@astrojs/check": "^0.9.3",
     "@astrojs/tailwind": "^5.1.1",
+    "@popperjs/core": "^2.11.8",
+    "@preline/dropdown": "^2.5.0",
     "astro": "^5.0.0-beta.1",
     "astro-icon": "^1.1.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "lucide-astro": "^0.446.0",
+    "preline": "^2.5.1",
     "sal.js": "^0.8.5",
+    "tailwind-merge": "^2.5.4",
+    "tailwindcss-animate": "^1.0.7",
     "tippy.js": "^6.3.7",
     "tw-merge": "0.0.1-alpha.3",
-    "typescript": "^5.6.2"
+    "typescript": "^5.6.2",
+    "vaul": "^1.1.0"
   },
   "devDependencies": {
     "@iconify-json/lucide": "^1.2.10",

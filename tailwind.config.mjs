@@ -1,11 +1,15 @@
 import typography from "@tailwindcss/typography";
 import fluid, { extract, fontSize, screens } from "fluid-tailwind";
+import preline from "preline/plugin";
 import tailwindDebugScreen from "tailwindcss-debug-screens";
 
 /** @type {import('tailwindcss').Config} */
 export default {
   content: {
-    files: ["./src/**/*.{astro,html,md,mdx,ts,tsx}"],
+    files: [
+      "./src/**/*.{astro,html,md,mdx,ts,tsx}",
+      "./node_modules/preline/preline.js",
+    ],
     extract,
   },
   darkMode: ["class"],
@@ -57,22 +61,18 @@ export default {
           DEFAULT: "hsl(var(--success) / <alpha-value>)",
           foreground: "hsl(var(--success-foreground) / <alpha-value>)",
         },
-
         muted: {
           DEFAULT: "hsl(var(--muted) / <alpha-value>)",
           foreground: "hsl(var(--muted-foreground) / <alpha-value>)",
         },
-
         accent: {
           DEFAULT: "hsl(var(--accent) / <alpha-value>)",
           foreground: "hsl(var(--accent-foreground) / <alpha-value>)",
         },
-
         popover: {
           DEFAULT: "hsl(var(--popover) / <alpha-value>)",
           foreground: "hsl(var(--popover-foreground) / <alpha-value>)",
         },
-
         card: {
           DEFAULT: "hsl(var(--card) / <alpha-value>)",
           foreground: "hsl(var(--card-foreground) / <alpha-value>)",
@@ -84,15 +84,39 @@ export default {
       },
       keyframes: {
         "fill-up": {
-          "0%": { height: "0%" },
-          "100%": { height: "100%" },
+          "0%": {
+            height: "0%",
+          },
+          "100%": {
+            height: "100%",
+          },
         },
         "fill-stroke": {
-          "0%": { "stroke-dashoffset": "1000", "stroke-dasharray": "1000" },
-          "100%": { "stroke-dashoffset": "0" },
+          "0%": {
+            "stroke-dashoffset": "1000",
+            "stroke-dasharray": "1000",
+          },
+          "100%": {
+            "stroke-dashoffset": "0",
+          },
         },
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
+      transitionTimingFunction: {
+        cubicBezierA: "cubic-bezier(.5,.85,.25,1.15)",
+        cubicBezierB: "cubic-bezier(.5,.85,.25,1.8)",
       },
     },
   },
-  plugins: [typography, tailwindDebugScreen, fluid],
+  plugins: [
+    typography,
+    tailwindDebugScreen,
+    fluid,
+    preline,
+    require("tailwindcss-animate"),
+  ],
 };
