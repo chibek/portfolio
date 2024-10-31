@@ -1,4 +1,4 @@
-import { list, strong } from "@lib/html";
+import { list, paragraph, strong } from "@lib/html";
 import type { SkillName } from "@lib/skill-icons";
 import type { WorkProps } from "@sections/work/Work.astro";
 
@@ -193,11 +193,32 @@ export const spanish = {
         },
       } as Works,
     },
-
     about: {
       title: "Sobre mí",
       name: "Sobre mí",
       id: "sobre-mi",
+      sections: {
+        atWork: {
+          title: "En el trabajo",
+          description: [
+            `${paragraph("With almost 8 years of coding experience, I bring a strong attention to detail and a committed work ethic to every project. I’m skilled in collaborating within teams but also thrive when working independently.")}`,
+            `${paragraph("I enjoy collaborating and supporting teammates, and I naturally take on leadership roles when needed, guiding projects forward while encouraging a positive, productive environment. My goal is to create solutions that benefit the team and foster growth for everyone involved.")}`,
+          ],
+        },
+        personal: {
+          title: "Mi lado personal",
+          description: [
+            `Personalmente adoro mi trabajo y siempre me ha gustado aprender y sentir que estoy mejorando siempre intento estar documentado con nuevas tecnologias.`,
+            `Algunas cosas que me gustan a parte de la programación son: jugar videojuegos, leer libros, jugar a padel, y disfrutar de la vida.`,
+          ],
+        },
+        contact: {
+          title: "Contáctame",
+          description: [
+            `Si tienes alguna pregunta, , un proyecto en mente, o simplemente quieres saludar, mi correo es:`,
+          ],
+        },
+      },
     },
   },
 } as const;

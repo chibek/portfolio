@@ -1,4 +1,4 @@
-import { list, strong } from "@lib/html";
+import { list, paragraph, strong } from "@lib/html";
 import type { Skills, Works } from "./spanish";
 
 export const english = {
@@ -187,11 +187,32 @@ export const english = {
         },
       } as Works,
     },
-
     about: {
-      title: "About me",
-      name: "About me",
+      title: "About Me",
+      name: "About Me",
       id: "about-me",
+      sections: {
+        atWork: {
+          title: "At Work",
+          description: [
+            `${paragraph("With almost 8 years of coding experience, I bring a strong attention to detail and a committed work ethic to every project. I’m skilled in collaborating within teams but also thrive when working independently.")}`,
+            `${paragraph("I enjoy collaborating and supporting teammates, and I naturally take on leadership roles when needed, guiding projects forward while encouraging a positive, productive environment. My goal is to create solutions that benefit the team and foster growth for everyone involved.")}`,
+          ],
+        },
+        personal: {
+          title: "My Personal Side",
+          description: [
+            `${paragraph("Personally, I love my work and have always enjoyed learning and feeling that I’m improving. I always try to stay informed about new technologies.")}`,
+            `${paragraph("Some things I enjoy besides programming are: playing video games, reading books, playing paddle tennis, and enjoying life.")}`,
+          ],
+        },
+        contact: {
+          title: "Contact Me",
+          description: [
+            `If you have any questions, a project in mind, or just want to say hello, my email is:`,
+          ],
+        },
+      },
     },
   },
 } as const;

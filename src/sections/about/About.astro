@@ -1,6 +1,20 @@
 ---
+import { Icon } from "astro-icon/components";
+import { cva } from "class-variance-authority";
+import Timezone from "./Timezone.astro";
 const { translations } = Astro.locals;
 const t = translations.sections.about;
+
+const gridSection = cva("p-6 border prose rounded-lg", {
+  variants: {
+    variant: {
+      grid1: "col-span-full md:col-span-5 lg:col-span-6",
+      grid2: "col-span-full md:col-span-5 lg:col-span-4",
+      grid3: "col-span-full md:col-span-5 lg:col-span-4",
+      grid4: "col-span-full md:col-span-5 lg:col-span-6",
+    },
+  },
+});
 ---
 
 <section id="about">
@@ -10,21 +24,33 @@ const t = translations.sections.about;
     <span>{t.title}</span>
     <span class="ml-[0.6em] mt-1 h-0.5 grow translate-y-full bg-muted"></span>
   </h2>
-  <div class="grid grid-cols-10 justify-center gap-6 border">
-    <div
-      class="relative col-span-full md:col-span-5 lg:col-span-6 p-6 border bg-red-200"
-    >
-      1
+  <div class="grid grid-cols-10 justify-center gap-6">
+    <div class={gridSection({ variant: "grid1" })}>
+      <h3 class="flex items-center">
+        <Icon name="work-about" class="size-8" />
+        <span>{t.sections.atWork.title}</span>
+      </h3>
+      <div set:html={t.sections.atWork.description} />
     </div>
 
-    <div
-      class="col-span-full md:col-span-5 lg:col-span-4 p-6 border bg-blue-200"
-    >
-      2
+    <div class={gridSection({ variant: "grid2" })}>
+      <h3 class="flex items-center">
+        <Icon name="work-about" class="size-8" />
+        <span>{t.sections.personal.title}</span>
+      </h3>
+      <div set:html={t.sections.personal.description} />
     </div>
 
-    <div class="col-span-full md:col-span-5 lg:col-span-4 p-6 border">3</div>
+    <div class={gridSection({ variant: "grid3" })}>
+      <Timezone />
+    </div>
 
-    <div class="col-span-full md:col-span-5 lg:col-span-6 p-6 border">4</div>
+    <div class={gridSection({ variant: "grid4" })}>
+      <h3 class="flex items-center">
+        <Icon name="work-about" class="size-8" />
+        <span>{t.sections.contact.title}</span>
+      </h3>
+      <div set:html={t.sections.contact.description} />
+    </div>
   </div>
 </section>

@@ -1,10 +1,10 @@
 ---
 import { cn } from "@lib/utils";
+import ThemeIcon from "../ThemeIcon.astro";
 import PageLinks from "./PageLinks.astro";
 import SelectI18N from "./SelectI18n.astro";
 
 const sections = [
-  { name: "Home", href: "/" },
   { name: "Stack", href: "#stack" },
   { name: "Work", href: "#work" },
   { name: "About", href: "#about" },
@@ -16,9 +16,12 @@ const { class: className } = Astro.props;
 ---
 
 <header class={cn("h-header", className)}>
-  <div class="flex justify-between max-w-5xl items-center mx-auto h-full">
+  <div class="flex justify-between max-w-7xl items-center mx-auto h-full">
     <PageLinks pages={sections} />
-    <SelectI18N />
+    <div class="flex items-center gap-12">
+      <SelectI18N />
+      <ThemeIcon />
+    </div>
   </div>
 </header>
 

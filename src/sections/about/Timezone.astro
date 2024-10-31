@@ -1,0 +1,71 @@
+---
+const options = {
+  hour: "2-digit",
+  minute: "2-digit",
+} satisfies Intl.DateTimeFormatOptions;
+const datetime = new Date().toLocaleString("en-US", options);
+---
+
+<div id="timezone"></div>
+<div class="flex flex-col items-center justify-center">
+  <time
+    datetime={`${datetime.slice(0, 16)}Z`}
+    class="whitespace-nowrap text-2xl font-semibold tabular-nums"
+  >
+    <span id="datetime" class="font-black capitalize text-primary"
+      >{datetime}</span
+    >
+    <span id="GMT" class="mt-2 text-base uppercase text-foreground/80"
+      >213131</span
+    >
+  </time>
+</div>
+<script>
+  document.addEventListener("astro:page-load", async () => {
+    const options = {
+      hour: "2-digit",
+      minute: "2-digit",
+    } satisfies Intl.DateTimeFormatOptions;
+    const dateTime = document.querySelector<HTMLElement>("#datetime");
+
+    const updateCountdown = (serverDate: Date) => {
+      return serverDate.toLocaleString("en-US", options);
+    };
+    setInterval(() => {
+      const date = new Date();
+      if (dateTime) {
+        dateTime.innerText = updateCountdown(date);
+      }
+    }, 1000);
+  });
+</script>
+
+<script>
+  document.addEventListener("astro:page-load", async () => {
+    function formatHour(hour: number) {
+      return String(hour).padStart(2, "0");
+    }
+
+    const timeZoneOffset = new Date().getTimezoneOffset();
+    const timeZoneOffsetHours = Math.floor(timeZoneOffset / 60);
+
+    const timezone = document.querySelector<HTMLElement>("#timezone");
+    const gmt = document.querySelector<HTMLElement>("#GMT");
+    if (timezone) {
+      if (timeZoneOffsetHours === 0) {
+        timezone.innerText = "Estamos en la misma zona horaria!";
+      }
+      if (timeZoneOffsetHours < 0) {
+        timezone.innerText = `${formatHour(Math.abs(timeZoneOffsetHours))}:00h Por detras de ti`;
+      }
+      if (timeZoneOffsetHours > 0) {
+        timezone.innerText = `${formatHour(Math.abs(timeZoneOffsetHours))}:00h Por delante de ti`;
+      }
+      if (gmt) {
+        gmt.innerText = `GMT ${new Intl.NumberFormat("en-US", {
+          signDisplay: "exceptZero",
+        }).format(Math.abs(timeZoneOffsetHours))}`;
+      }
+    }
+  });
+</script>

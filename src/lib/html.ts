@@ -77,6 +77,10 @@ export function list<const T extends string[]>(content: T) {
   return wrapInTags(listElements, "ul");
 }
 
+export function paragraph<const T extends string>(content: T) {
+  return wrapInTags(content, "p");
+}
+
 /**
  * Wraps the given content in HTML tags.
  *
