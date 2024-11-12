@@ -48,12 +48,12 @@ const { locale } = Astro.locals;
     </script>
   </head>
   <body
-    class={cn("overflow-x-hidden antialiased", {
+    class={cn("overflow-x-hidden overflow-y-scroll antialiased", {
       "debug-screens": ENVIRONMENT === "dev",
     })}
   >
     <Header class="fixed inset-0 top-0 z-20" />
-    <main class="min-h-main mt-header mx-auto max-w-screen-lg px-8 py-16">
+    <main class="min-h-main mt-header mx-auto max-w-screen-lg ~px-4/8 py-16">
       <slot />
     </main>
   </body>

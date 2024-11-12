@@ -16,9 +16,11 @@ const { class: className } = Astro.props;
 ---
 
 <header class={cn("h-header", className)}>
-  <div class="flex justify-between max-w-7xl items-center mx-auto h-full">
+  <div
+    class="flex justify-between ~max-w-4xl/7xl items-center mx-auto h-full ~px-4/8"
+  >
     <PageLinks pages={sections} />
-    <div class="flex items-center gap-12">
+    <div class="flex items-center ~gap-x-4/12 px-6">
       <SelectI18N />
       <ThemeIcon />
     </div>

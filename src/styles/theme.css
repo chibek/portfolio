@@ -73,6 +73,10 @@
     z-index: -1;
   }
 
+  .section_title {
+    @apply my-12 ml-2 inline-flex w-full items-center text-pretty ~text-2xl/3xl font-semibold opacity-85 sm:ml-0;
+  }
+
   @keyframes scale {
     to {
       mask-size: 350vmax;
