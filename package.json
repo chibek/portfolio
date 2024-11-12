@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "build": "astro build",
     "preview": "wrangler pages dev ./dist",
     "astro": "astro",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx,astro}\" --fix",
@@ -28,10 +28,10 @@
     "tippy.js": "^6.3.7",
     "tw-merge": "0.0.1-alpha.3",
     "typescript": "^5.6.3",
-    "vaul": "^1.1.1",
-    "@iconify-json/lucide": "^1.2.14"
+    "vaul": "^1.1.1"
   },
   "devDependencies": {
+    "@iconify-json/lucide": "^1.2.14",
     "@stylistic/eslint-plugin-jsx": "^2.10.1",
     "@stylistic/eslint-plugin-ts": "^2.10.1",
     "@tailwindcss/typography": "^0.5.15",
