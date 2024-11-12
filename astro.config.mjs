@@ -5,8 +5,6 @@ import tailwind from "@astrojs/tailwind";
 
 import icon from "astro-icon";
 
-import cloudflare from "@astrojs/cloudflare";
-
 // https://astro.build/config
 export default defineConfig({
   i18n: {
@@ -49,6 +47,4 @@ export default defineConfig({
       },
     }),
   ],
-
-  adapter: cloudflare(),
 });
