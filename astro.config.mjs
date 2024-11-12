@@ -5,12 +5,15 @@ import tailwind from "@astrojs/tailwind";
 
 import icon from "astro-icon";
 
+import cloudflare from "@astrojs/cloudflare";
+
 // https://astro.build/config
 export default defineConfig({
   i18n: {
     defaultLocale: "en",
     locales: ["es", "en"],
   },
+
   env: {
     schema: {
       ENVIRONMENT: envField.enum({
@@ -21,6 +24,7 @@ export default defineConfig({
       }),
     },
   },
+
   integrations: [
     tailwind(),
     icon({
@@ -45,4 +49,6 @@ export default defineConfig({
       },
     }),
   ],
+
+  adapter: cloudflare(),
 });
