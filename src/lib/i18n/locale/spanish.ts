@@ -8,6 +8,9 @@ export interface Works {
 export interface Skills extends Record<SkillName, string> {}
 
 export const spanish = {
+  global: {
+    scrollToTop: "Desplazarse hacia arriba",
+  },
   meta: {
     name: "Español",
     locale: "es",
@@ -46,6 +49,7 @@ export const spanish = {
       headline: `¡Hola! Soy Sergio, desarrollador de aplicaciones ${strong("Full Stack")}.`,
       description:
         "Especializado en desarrollo de videojuegos, pero también apasionado por desarrollar cualquier tipo de software. Con más de 6 años de experiencia en programación, actualmente busco aprovechar mis más de 4 años de experiencia profesional para hacer la transición al desarrollo backend.",
+      copied: "Copiado!",
     },
     technologies: {
       title: "Stack tecnológico",

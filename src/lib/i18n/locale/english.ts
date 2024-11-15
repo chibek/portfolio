@@ -2,6 +2,9 @@ import { list, paragraph, strong } from "@lib/html";
 import type { Skills, Works } from "./spanish";
 
 export const english = {
+  global: {
+    scrollToTop: "Scroll to top",
+  },
   meta: {
     name: "English",
     locale: "en",
@@ -40,6 +43,7 @@ export const english = {
       headline: `Hey! I'm Sergio, Full Stack application ${strong("developer")}.`,
       description:
         "Specialized in game development, yet also passionate about developing any kind of software. With 6+ years of coding expertise, I am currently seeking to leverage my 4+ years of professional experience to transition into backend development.",
+      copied: "Copied!",
     },
     technologies: {
       title: "Main tech stack",

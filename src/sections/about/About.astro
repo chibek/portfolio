@@ -5,7 +5,7 @@ import Timezone from "./Timezone.astro";
 const { translations } = Astro.locals;
 const t = translations.sections.about;
 
-const gridSection = cva("p-6 border prose rounded-lg", {
+const gridSection = cva("p-6 border prose dark:prose-invert rounded-lg", {
   variants: {
     variant: {
       grid1: "col-span-full md:col-span-5 lg:col-span-6",

@@ -28,7 +28,12 @@ const { translations } = Astro.locals;
 const t = translations.sections.technologies;
 ---
 
-<section id="stack">
+<section
+  id="stack"
+  data-sal="slide-up"
+  data-sal-delay="200"
+  data-sal-easing="ease-out-back"
+>
   <h2 class="section_title">
     <span>{t.title}</span>
     <span class="ml-[0.6em] mt-1 h-0.5 grow translate-y-full bg-muted"></span>

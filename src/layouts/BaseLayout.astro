@@ -35,6 +35,10 @@ const { locale } = Astro.locals;
           if (t.tagName == "SPAN" || t.tagName == "DIV") {
             t.setAttribute("tabindex", "0");
           }
+          const onClick =
+            t.getAttribute("data-tip-click") === "true"
+              ? "click"
+              : "mouseenter focus";
           tippy(t, {
             content: t.getAttribute("data-tip") || "",
             placement:
@@ -42,22 +46,24 @@ const { locale } = Astro.locals;
             arrow: false,
             animation: "scale",
             duration: [250, null],
+            trigger: onClick,
           });
         });
       });
     </script>
   </head>
   <body
-    class={cn("overflow-x-hidden overflow-y-scroll antialiased", {
+    class={cn("overflow-x-hidden overflow-y-scroll antialiased relative", {
       "debug-screens": ENVIRONMENT === "dev",
     })}
   >
     <Header class="fixed inset-0 top-0 z-20" />
-    <main class="min-h-main mt-header mx-auto max-w-screen-lg ~px-4/8 py-16">
-      <slot />
-    </main>
+    <slot />
   </body>
 </html>
+<script>
+  import "preline/dist/preline.js";
+</script>
 <script>
   function updatePageLinks(entry: IntersectionObserverEntry | undefined) {
     const documentLinks = document.querySelectorAll(
@@ -70,8 +76,6 @@ const { locale } = Astro.locals;
   }
 
   document.addEventListener("astro:page-load", async () => {
-    const preline = await import("preline/dist/preline.js");
-    preline.HSStaticMethods.autoInit();
     const sections = document.querySelectorAll("section[id]");
     let lastVisibleSection: IntersectionObserverEntry | undefined;
     const observer = new IntersectionObserver(

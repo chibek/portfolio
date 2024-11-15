@@ -92,7 +92,7 @@ const { class: className } = Astro.props;
   }
 </style>
 <script is:inline>
-  document.addEventListener("astro:page-load", async () => {
+  function init() {
     const theme = (() => {
       if (
         typeof localStorage !== "undefined" &&
@@ -123,12 +123,14 @@ const { class: className } = Astro.props;
     };
 
     const checkbox = document.getElementById("themeToggle");
-    checkbox.addEventListener("change", () => {
+    checkbox?.addEventListener("change", () => {
       document.startViewTransition(() => {
         requestAnimationFrame(() => {
           handleToggleClick();
         });
       });
     });
-  });
+  }
+  document.addEventListener("astro:page-load", init);
+  document.addEventListener("astro:after-swap", init);
 </script>
