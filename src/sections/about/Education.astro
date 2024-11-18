@@ -1,0 +1,25 @@
+---
+import { Picture } from "astro:assets";
+import graduationImg from "../../assets/about/graduation-cap.png";
+
+interface Props {
+  class?: string;
+}
+const { class: className } = Astro.props;
+
+const { translations } = Astro.locals;
+const t = translations.sections.about;
+---
+
+<div class={className}>
+  <h3 class="flex items-center not-prose font-bold text-2xl space-x-2">
+    <Picture
+      src={graduationImg}
+      alt={t.sections.contact.graduationImage}
+      formats={["avif", "webp", "png"]}
+      class="size-[1.5em]"
+    />
+    <span>{t.sections.contact.title}</span>
+  </h3>
+  <div set:html={t.sections.contact.description} />
+</div>

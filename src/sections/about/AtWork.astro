@@ -1,0 +1,38 @@
+---
+import { Picture } from "astro:assets";
+import aboutMeImg from "../../assets/about/about-me-code.webp";
+import laptopImg from "../../assets/about/laptop.png";
+import { cn } from "../../lib/utils";
+
+interface Props {
+  class?: string;
+}
+const { class: className } = Astro.props;
+
+const { translations } = Astro.locals;
+const t = translations.sections.about;
+---
+
+<div class={cn(className, "relative")}>
+  <h3 class="flex items-center not-prose font-bold text-2xl space-x-2">
+    <Picture
+      src={laptopImg}
+      alt={t.sections.atWork.laptopImage}
+      formats={["avif", "webp", "png"]}
+      class="size-[1.3em]"
+    />
+    <span>{t.sections.atWork.title}</span>
+  </h3>
+  <div set:html={t.sections.atWork.description} />
+  <div
+    class="relative overflow-hidden p-[22%] [@media(850px<=width<=920px)]:p-[18%] [@media(921px<=width<=1024px)]:p-[17%]"
+  >
+    <Picture
+      src={aboutMeImg}
+      alt={t.sections.atWork.codeImage}
+      formats={["avif", "webp", "png"]}
+      class="absolute inset-0 mx-auto w-fit lg:mt-2 xl:mt-0"
+      data-mask
+    />
+  </div>
+</div>

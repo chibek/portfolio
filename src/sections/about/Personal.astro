@@ -1,0 +1,50 @@
+---
+import { Picture } from "astro:assets";
+import burgerImg from "../../assets/about/burger.webp";
+import programerImg from "../../assets/about/programmer.webp";
+import sportImg from "../../assets/about/sport.webp";
+
+interface Props {
+  class?: string;
+}
+const { class: className } = Astro.props;
+
+const { translations } = Astro.locals;
+const t = translations.sections.about;
+---
+
+<div class={className}>
+  <h3 class="flex items-center not-prose font-bold text-2xl space-x-2">
+    <img
+      src="/assets/hand/hand.gif"
+      width={64}
+      height={64}
+      alt={t.sections.personal.handShakingImage}
+      decoding="async"
+      loading="lazy"
+      class="size-[1.5em]"
+    />
+    <span>{t.sections.personal.title}</span>
+  </h3>
+  <div set:html={t.sections.personal.description} />
+  <div class="grid grid-cols-3 grid-rows-1 gap-x-8 pt-8 sm:gap-x-2">
+    <Picture
+      src={burgerImg}
+      alt={t.sections.personal.burgerImage}
+      class="size-[7rem] animate-float -rotate-12"
+      formats={["avif", "webp", "png"]}
+    />
+    <Picture
+      src={programerImg}
+      alt={t.sections.personal.programmerImage}
+      class="size--[7rem] rotate-12 animate-float"
+      formats={["avif", "webp", "png"]}
+    />
+    <Picture
+      src={sportImg}
+      alt={t.sections.personal.sportImage}
+      class="size-[7rem] -rotate-12 animate-float"
+      formats={["avif", "webp", "png"]}
+    />
+  </div>
+</div>

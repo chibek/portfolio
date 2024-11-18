@@ -81,6 +81,7 @@ export default {
       animation: {
         "fill-up": "fill-up 0.3s linear forwards",
         "fill-stroke": "fill-stroke 6s linear forwards",
+        float: "float 6s ease-in-out infinite",
       },
       keyframes: {
         "fill-up": {
@@ -100,6 +101,10 @@ export default {
             "stroke-dashoffset": "0",
           },
         },
+        float: {
+          "0%, 100%": { transform: "translateY(0)", transform: "rotate(45)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -109,6 +114,13 @@ export default {
       transitionTimingFunction: {
         cubicBezierA: "cubic-bezier(.5,.85,.25,1.15)",
         cubicBezierB: "cubic-bezier(.5,.85,.25,1.8)",
+      },
+      typography: {
+        DEFAULT: {
+          img: {
+            height: "0",
+          },
+        },
       },
     },
   },

@@ -208,6 +208,8 @@ export const spanish = {
             `${paragraph("With almost 8 years of coding experience, I bring a strong attention to detail and a committed work ethic to every project. I’m skilled in collaborating within teams but also thrive when working independently.")}`,
             `${paragraph("I enjoy collaborating and supporting teammates, and I naturally take on leadership roles when needed, guiding projects forward while encouraging a positive, productive environment. My goal is to create solutions that benefit the team and foster growth for everyone involved.")}`,
           ],
+          laptopImage: "Portatil",
+          codeImage: "Imagen de código",
         },
         personal: {
           title: "Mi lado personal",
@@ -215,15 +217,21 @@ export const spanish = {
             `Personalmente adoro mi trabajo y siempre me ha gustado aprender y sentir que estoy mejorando siempre intento estar documentado con nuevas tecnologias.`,
             `Algunas cosas que me gustan a parte de la programación son: jugar videojuegos, leer libros, jugar a padel, y disfrutar de la vida.`,
           ],
+          handShakingImage: "Mano saludando",
+          burgerImage: "Hamburguesa",
+          programmerImage: "Programador",
+          sportImage: "Deporte",
         },
         contact: {
           title: "Contáctame",
           description: [
             `Si tienes alguna pregunta, , un proyecto en mente, o simplemente quieres saludar, mi correo es:`,
           ],
+          graduationImage: "Graduacion",
         },
         location: {
           title: `Ubicación`,
+          houseImage: "Casa",
         },
       },
     },
