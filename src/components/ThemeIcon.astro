@@ -124,11 +124,16 @@ const { class: className } = Astro.props;
 
     const checkbox = document.getElementById("themeToggle");
     checkbox?.addEventListener("change", () => {
-      document.startViewTransition(() => {
-        requestAnimationFrame(() => {
-          handleToggleClick();
+      if (document.startViewTransition) {
+        document.startViewTransition(() => {
+          requestAnimationFrame(() => {
+            handleToggleClick();
+          });
         });
-      });
+      } else {
+        // Fallback for unsupported browsers
+        handleToggleClick();
+      }
     });
   }
   document.addEventListener("astro:page-load", init);
