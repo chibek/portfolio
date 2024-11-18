@@ -1,11 +1,15 @@
 ---
+import { cn } from "@lib/utils";
 import { Icon } from "astro-icon/components";
+import { Picture } from "astro:assets";
 import { cva } from "class-variance-authority";
+import aboutme from "../../assets/about/about-me-code.webp";
 import Timezone from "./Timezone.astro";
+
 const { translations } = Astro.locals;
 const t = translations.sections.about;
 
-const gridSection = cva("p-6 border prose dark:prose-invert rounded-lg", {
+const gridSection = cva("px-6 pt-6 border prose dark:prose-invert rounded-lg", {
   variants: {
     variant: {
       grid1: "col-span-full md:col-span-5 lg:col-span-6",
@@ -23,12 +27,23 @@ const gridSection = cva("p-6 border prose dark:prose-invert rounded-lg", {
     <span class="ml-[0.6em] mt-1 h-0.5 grow translate-y-full bg-muted"></span>
   </h2>
   <div class="grid grid-cols-10 justify-center gap-6">
-    <div class={gridSection({ variant: "grid1" })}>
+    <div class={cn(gridSection({ variant: "grid1" }), "relative")}>
       <h3 class="flex items-center">
         <Icon name="work-about" class="size-8" />
         <span>{t.sections.atWork.title}</span>
       </h3>
       <div set:html={t.sections.atWork.description} />
+      <div
+        class="relative overflow-hidden p-[22%] [@media(850px<=width<=920px)]:p-[18%] [@media(921px<=width<=1024px)]:p-[17%]"
+      >
+        <Picture
+          src={aboutme}
+          alt={"code about"}
+          formats={["avif", "webp", "png"]}
+          class="absolute inset-0 mx-auto w-fit lg:mt-2 xl:mt-0"
+          data-mask
+        />
+      </div>
     </div>
 
     <div class={gridSection({ variant: "grid2" })}>
@@ -39,8 +54,16 @@ const gridSection = cva("p-6 border prose dark:prose-invert rounded-lg", {
       <div set:html={t.sections.personal.description} />
     </div>
 
-    <div class={gridSection({ variant: "grid3" })}>
-      <Timezone />
+    <div class={cn(gridSection({ variant: "grid3" }))}>
+      <h3 class="flex items-center">
+        <Icon name="work-about" class="size-8" />
+        <span>{t.sections.location.title}</span>
+      </h3>
+      <div
+        class="items-center flex flex-col divide-y *:py-4 first:*:pt-0 last:*:pb-0"
+      >
+        <Timezone />
+      </div>
     </div>
 
     <div class={gridSection({ variant: "grid4" })}>

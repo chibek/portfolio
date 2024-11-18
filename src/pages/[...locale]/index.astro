@@ -7,21 +7,23 @@ import Technologies from "@sections/technologies/Technologies.astro";
 import Works from "@sections/work/Works.astro";
 import type { GetStaticPaths } from "astro";
 import { Icon } from "astro-icon/components";
+import Footer from "@/sections/Footer.astro";
 
 export const getStaticPaths =
   createStaticPathsHandler() satisfies GetStaticPaths;
 ---
 
 <BaseLayout title="Astro" description="Welcome to the Astro blog">
-  <main class="min-h-main mt-header mx-auto max-w-screen-lg ~px-4/8 py-16">
+  <main class="min-h-main mt-header mx-auto max-w-screen-xl ~px-4/8 py-16">
     <Hero />
     <Technologies />
     <Works />
     <About />
+    <Footer />
   </main>
   <div class="pointer-events-none fixed top-0 z-50 h-dvh w-dvw">
     <button
-      class="pointer-events-auto bg-background flex items-center justify-center absolute -bottom-32 right-12 m-6 aspect-square size-12 min-h-12 min-w-12 rounded-full lg:m-12 xl:size-16 xl:min-h-16 xl:min-w-16 xl:p-2 border"
+      class="pointer-events-auto bg-background flex items-center justify-center absolute -bottom-32 right-0 md:right-12 m-6 aspect-square size-12 min-h-12 min-w-12 rounded-full lg:m-12 xl:size-16 xl:min-h-16 xl:min-w-16 xl:p-2 border"
       data-scroll-to-top
     >
       <Icon

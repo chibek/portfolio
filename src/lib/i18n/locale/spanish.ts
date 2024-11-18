@@ -222,6 +222,9 @@ export const spanish = {
             `Si tienes alguna pregunta, , un proyecto en mente, o simplemente quieres saludar, mi correo es:`,
           ],
         },
+        location: {
+          title: `Ubicación`,
+        },
       },
     },
   },

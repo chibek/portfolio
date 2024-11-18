@@ -1,22 +1,32 @@
 ---
 import { cn } from "@lib/utils";
+import { Icon } from "astro-icon/components";
+import type { Icon as IconType } from "virtual:astro-icon";
 
-type Page = { name: string; href: string };
+export type PageLink = { name: string; href: string; icon: IconType };
 interface Props {
-  pages: Page[];
+  pages: PageLink[];
   class?: string;
 }
 const { pages, class: className } = Astro.props;
 ---
 
-<nav class={cn("grid grid-cols-3 items-center ", className)}>
-  <ul class="flex space-x-4">
+<nav class={cn("grid grid-cols-4 md:grid-cols-3 items-center ", className)}>
+  <ul class="flex space-x-4 col-span-2 lg:col-span-1">
     {
-      pages.map(({ name, href }) => {
+      pages.map(({ name, href, icon }) => {
         return (
           <li>
-            <a data-nav-link="header" href={href}>
-              {name}
+            <a
+              class="flex items-center space-x-2"
+              data-nav-link="header"
+              href={href}
+            >
+              <Icon
+                name={icon}
+                class="hidden md:inline flex-none size-4 lg:size-5 "
+              />
+              <span>{name}</span>
             </a>
           </li>
         );

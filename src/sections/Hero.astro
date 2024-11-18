@@ -27,7 +27,7 @@ const t = translations.sections.hero;
 ---
 
 <section>
-  <div data-sal="slide-up" data-sal-delay="300" data-sal-easing="ease-out-back">
+  <div data-sal="slide-up" data-sal-easing="ease-out-back">
     <div class="font-neutralFace ~text-3xl/4xl">
       <h1 class="max-w-4xl" set:html={t.headline} />
     </div>
@@ -78,12 +78,9 @@ const t = translations.sections.hero;
     </div>
   </div>
 </section>
-<script
-  is:inline
-  src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.js"
-></script>
 
 <script>
+  import confetti from "canvas-confetti";
   import sal from "sal.js";
 
   document.addEventListener("astro:page-load", () => {
@@ -101,7 +98,7 @@ const t = translations.sections.hero;
 
         const confettiSettings = {
           particleCount: 20,
-          spread: 30,
+          spread: 100,
           origin: { x: x / window.innerWidth, y: y / window.innerHeight },
         };
 

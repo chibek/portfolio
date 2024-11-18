@@ -211,10 +211,13 @@ export const english = {
           ],
         },
         contact: {
-          title: "Contact Me",
+          title: "What I'm looking for?",
           description: [
-            `If you have any questions, a project in mind, or just want to say hello, my email is:`,
+            `I'm looking good environment flexibility and passion to develop some product`,
           ],
+        },
+        location: {
+          title: `Location`,
         },
       },
     },

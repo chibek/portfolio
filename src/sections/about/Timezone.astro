@@ -1,24 +1,29 @@
 ---
-const options = {
+const dateTimeOptions = {
   hour: "2-digit",
   minute: "2-digit",
 } satisfies Intl.DateTimeFormatOptions;
-const datetime = new Date().toLocaleString("en-US", options);
+const dateTimeDayOptions = {
+  weekday: "long",
+  month: "long",
+  day: "numeric",
+} satisfies Intl.DateTimeFormatOptions;
+const dateTime = new Date().toLocaleString("en-US", dateTimeOptions);
+const dateTimeDay = new Date().toLocaleString("en-US", dateTimeDayOptions);
 ---
 
-<div id="timezone"></div>
+<div class="font-medium text-xl text-center" id="timezone"></div>
 <div class="flex flex-col items-center justify-center">
   <time
-    datetime={`${datetime.slice(0, 16)}Z`}
-    class="whitespace-nowrap text-2xl font-semibold tabular-nums"
+    datetime={`${dateTime.slice(0, 16)}Z`}
+    class="whitespace-nowrap text-4xl font-semibold tabular-nums"
   >
     <span id="datetime" class="font-black capitalize text-primary"
-      >{datetime}</span
+      >{dateTime}</span
     >
-    <span id="GMT" class="mt-2 text-base uppercase text-foreground/80"
-      >213131</span
-    >
+    <span id="GMT" class="mt-2 text-base uppercase text-foreground/80"></span>
   </time>
+  <span>{dateTimeDay}</span>
 </div>
 <script>
   document.addEventListener("astro:page-load", async () => {
