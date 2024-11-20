@@ -1,13 +1,30 @@
 import { Languages } from "lucide-preact";
-import { useState } from "preact/hooks";
+import { useEffect, useRef, useState } from "preact/hooks";
 import { cn } from "../../lib/utils";
 
 export const SelectI18N = () => {
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
+
   const languages = [
     { value: "en", label: "English", href: "/" },
     { value: "es", label: "Español", href: "/es" },
   ];
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => setIsOpen(!isOpen);
@@ -25,7 +42,10 @@ export const SelectI18N = () => {
       </button>
 
       {isOpen && (
-        <div className="origin-top-right absolute right-0 mt-2 overflow-hidden rounded-md shadow-lg border">
+        <div
+          ref={dropdownRef}
+          className="origin-top-right absolute right-0 mt-2 overflow-hidden rounded-md shadow-lg border"
+        >
           {languages.map((language) => (
             <a
               onClick={toggleDropdown}
