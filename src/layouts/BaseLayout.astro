@@ -48,9 +48,7 @@ const { locale } = Astro.locals;
     <slot />
   </body>
 </html>
-<script>
-  import "@preline/dropdown/index.js";
-</script>
+
 <script type="module">
   function updatePageLinks(entry) {
     const documentLinks = document.querySelectorAll("a[href^='#']");
@@ -59,26 +57,27 @@ const { locale } = Astro.locals;
       link.classList.toggle("active", target === entry?.target.id);
     }
   }
-
-  const sections = document.querySelectorAll("section[id]");
-  let lastVisibleSection;
-  const observer = new IntersectionObserver(
-    (entries) => {
-      const newLast = entries.findLast((entry) => entry.isIntersecting);
-      // If there's a new section in view, update the corresponding links.
-      if (newLast !== undefined && lastVisibleSection !== newLast) {
-        lastVisibleSection = newLast;
-        updatePageLinks(lastVisibleSection);
+  document.addEventListener("astro:page-load", () => {
+    const sections = document.querySelectorAll("section[id]");
+    let lastVisibleSection;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const newLast = entries.findLast((entry) => entry.isIntersecting);
+        // If there's a new section in view, update the corresponding links.
+        if (newLast !== undefined && lastVisibleSection !== newLast) {
+          lastVisibleSection = newLast;
+          updatePageLinks(lastVisibleSection);
+        }
+      },
+      {
+        threshold: 0.3,
       }
-    },
-    {
-      threshold: 0.3,
-    }
-  );
+    );
 
-  for (const section of sections) {
-    observer.observe(section);
-  }
+    for (const section of sections) {
+      observer.observe(section);
+    }
+  });
 </script>
 <style is:global>
   @font-face {
