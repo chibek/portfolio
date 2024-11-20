@@ -19,7 +19,9 @@ export const SelectI18N = () => {
         })}
         onClick={toggleDropdown}
       >
-        <Languages className="size-5" />
+        <span class="flex-none">
+          <Languages className="size-5 " />
+        </span>
       </button>
 
       {isOpen && (

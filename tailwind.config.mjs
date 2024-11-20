@@ -8,7 +8,7 @@ export default {
     files: ["./src/**/*.{astro,html,md,mdx,ts,tsx}"],
     extract,
   },
-  darkMode: ["class"],
+  darkMode: ["selector", '[data-theme="dark"]'],
   theme: {
     extend: {
       screens,

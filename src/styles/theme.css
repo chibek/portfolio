@@ -1,5 +1,6 @@
 @layer base {
-  :root {
+  :root,
+  :root[data-theme="light"] {
     --background: 0 0% 100%;
     --foreground: 20 14.3% 4.1%;
     --card: 0 0% 100%;
@@ -22,7 +23,7 @@
     --radius: 0.5rem;
   }
 
-  .dark {
+  :root[data-theme="dark"] {
     --background: 20 14.3% 4.1%;
     --foreground: 60 2% 90%;
     --card: 20 14.3% 4.1%;
