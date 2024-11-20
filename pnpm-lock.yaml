@@ -17,9 +17,6 @@ dependencies:
   '@popperjs/core':
     specifier: ^2.11.8
     version: 2.11.8
-  '@preline/dropdown':
-    specifier: ^2.5.0
-    version: 2.5.0
   astro:
     specifier: ^5.0.0-beta.1
     version: 5.0.0-beta.7(typescript@5.6.3)
@@ -44,9 +41,6 @@ dependencies:
   preact:
     specifier: ^10.24.3
     version: 10.24.3
-  preline:
-    specifier: ^2.5.1
-    version: 2.5.1
   sal.js:
     specifier: ^0.8.5
     version: 0.8.5
@@ -1729,10 +1723,6 @@ packages:
       vite: 5.4.11
     transitivePeerDependencies:
       - supports-color
-    dev: false
-
-  /@preline/dropdown@2.5.0:
-    resolution: {integrity: sha512-ydKGBx02eLWzmCn8gkaaTe/gXXqvkZKZCgCYCWETRdy31qhaam43hvJMcpsGOROWSjlPNBgVyGrwYdAgJUO68g==}
     dev: false
 
   /@rollup/pluginutils@4.2.1:
@@ -5378,12 +5368,6 @@ packages:
       find-up-simple: 1.0.0
       find-yarn-workspace-root2: 1.2.16
       which-pm: 3.0.0
-    dev: false
-
-  /preline@2.5.1:
-    resolution: {integrity: sha512-fEXOsz0xLfTm5sJmNanourrMjwjcgGtaVNg8Pt6GzUbZ/oXHIdcR94LBdeE0Ea0pBPFOOHzEL5LQwSbAvCJEfw==}
-    dependencies:
-      '@popperjs/core': 2.11.8
     dev: false
 
   /prelude-ls@1.2.1:

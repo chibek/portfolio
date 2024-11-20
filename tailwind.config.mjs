@@ -1,15 +1,11 @@
 import typography from "@tailwindcss/typography";
 import fluid, { extract, fontSize, screens } from "fluid-tailwind";
-import preline from "preline/plugin";
 import tailwindDebugScreen from "tailwindcss-debug-screens";
 
 /** @type {import('tailwindcss').Config} */
 export default {
   content: {
-    files: [
-      "./src/**/*.{astro,html,md,mdx,ts,tsx}",
-      "./node_modules/@preline/dropdown/index.js",
-    ],
+    files: ["./src/**/*.{astro,html,md,mdx,ts,tsx}"],
     extract,
   },
   darkMode: ["class"],
@@ -128,7 +124,6 @@ export default {
     typography,
     tailwindDebugScreen,
     fluid,
-    preline,
     require("tailwindcss-animate"),
   ],
 };
