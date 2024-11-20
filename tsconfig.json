@@ -2,19 +2,33 @@
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
     "jsx": "react-jsx",
-    "jsxImportSource": "react",
+    "jsxImportSource": "preact",
     "baseUrl": ".",
-
     "paths": {
-      "@/*": ["./src/*"],
-      "@styles/*": ["./src/styles/*"],
-      "@assets/*": ["./public/assets/*"],
-      "@components/*": ["./src/components/*"],
-      "@sections/*": ["./src/sections/*"],
-      "@lib/*": ["./src/lib/*"]
+      "@/*": [
+        "./src/*"
+      ],
+      "@styles/*": [
+        "./src/styles/*"
+      ],
+      "@assets/*": [
+        "./public/assets/*"
+      ],
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@sections/*": [
+        "./src/sections/*"
+      ],
+      "@lib/*": [
+        "./src/lib/*"
+      ]
     },
-
-    "plugins": [{ "name": "@astrojs/ts-plugin" }],
+    "plugins": [
+      {
+        "name": "@astrojs/ts-plugin"
+      }
+    ],
     "skipLibCheck": false,
     "verbatimModuleSyntax": true
   }

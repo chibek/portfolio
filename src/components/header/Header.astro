@@ -2,7 +2,7 @@
 import { cn } from "@lib/utils";
 import ThemeIcon from "../ThemeIcon.astro";
 import PageLinks, { type PageLink } from "./PageLinks.astro";
-import SelectI18N from "./SelectI18n.astro";
+import { SelectI18N } from "./SelectI18n.tsx";
 
 const sections = [
   { name: "Stack", href: "#stack", icon: "lucide:layers" },
@@ -21,7 +21,7 @@ const { class: className } = Astro.props;
   >
     <PageLinks pages={sections} />
     <div class="flex items-center ~gap-x-4/12 ~px-8/12">
-      <SelectI18N />
+      <SelectI18N client:idle />
       <ThemeIcon />
     </div>
   </div>

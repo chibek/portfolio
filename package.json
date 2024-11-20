@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
+    "@astrojs/preact": "^3.5.3",
     "@astrojs/tailwind": "^5.1.2",
     "@popperjs/core": "^2.11.8",
     "@preline/dropdown": "^2.5.0",
@@ -22,6 +23,8 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "lucide-astro": "^0.456.0",
+    "lucide-preact": "^0.460.0",
+    "preact": "^10.24.3",
     "preline": "^2.5.1",
     "sal.js": "^0.8.5",
     "tailwind-merge": "^2.5.4",
