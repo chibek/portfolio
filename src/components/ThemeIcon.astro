@@ -5,9 +5,8 @@ interface Props {
 const { class: className } = Astro.props;
 ---
 
-<label class="theme-toggle flex-none" title="Toggle theme">
-  <input type="checkbox" id="themeToggle" />
-  <span class="theme-toggle-sr">Toggle theme</span>
+<button id="themeToggle">
+  <span class="sr-only">Toggle theme</span>
   <svg
     class={className}
     xmlns="http://www.w3.org/2000/svg"
@@ -35,60 +34,11 @@ const { class: className } = Astro.props;
       d="M16 9.5c-3.6 0-6.4 2.9-6.4 6.4s2.8 6.5 6.4 6.5 6.4-2.9 6.4-6.4-2.8-6.5-6.4-6.5z"
     ></path>
   </svg>
-</label>
+</button>
 
 <style>
-  .theme-toggle.theme-toggle--reversed .theme-toggle__within {
-    transform: scale(-1, 1);
-  }
-  .theme-toggle {
-    --theme-toggle__within--duration: 500ms;
-  }
-  .theme-toggle__within * {
-    transform-origin: center;
-    transition: transform calc(var(--theme-toggle__within--duration))
-      cubic-bezier(0, 0, 0, 1.25);
-  }
-  .theme-toggle
-    input[type="checkbox"]:checked
-    ~ .theme-toggle__within
-    .theme-toggle__within__circle,
-  .theme-toggle--toggled:not(label).theme-toggle
-    .theme-toggle__within
-    .theme-toggle__within__circle {
-    transform: scale(1.5);
-  }
-  .theme-toggle
-    input[type="checkbox"]:checked
-    ~ .theme-toggle__within
-    .theme-toggle__within__inner,
-  .theme-toggle--toggled:not(label).theme-toggle
-    .theme-toggle__within
-    .theme-toggle__within__inner {
-    transform: translate3d(3px, -3px, 0) scale(1.2);
-  }
-  .theme-toggle input[type="checkbox"]:checked ~ .theme-toggle__within g path,
-  .theme-toggle--toggled:not(label).theme-toggle .theme-toggle__within g path {
-    transform: scale(0.65);
-  }
-  .theme-toggle {
-    border: none;
-    background: 0 0;
-    cursor: pointer;
-  }
   .theme-toggle input[type="checkbox"] {
     display: none;
-  }
-  .theme-toggle .theme-toggle-sr {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
   }
 </style>
 <script>
@@ -112,7 +62,7 @@ const { class: className } = Astro.props;
       document.documentElement.classList.add("dark");
     }
 
-    window.localStorage.setItem("theme", theme);
+    window.localStorage.setItem("theme", theme ?? "light");
 
     const handleToggleClick = () => {
       const element = document.documentElement;
@@ -123,17 +73,8 @@ const { class: className } = Astro.props;
     };
 
     const checkbox = document.getElementById("themeToggle");
-    checkbox?.addEventListener("change", () => {
-      if (document.startViewTransition) {
-        document.startViewTransition(() => {
-          requestAnimationFrame(() => {
-            handleToggleClick();
-          });
-        });
-      } else {
-        // Fallback for unsupported browsers
-        handleToggleClick();
-      }
+    checkbox?.addEventListener("click", () => {
+      handleToggleClick();
     });
   }
   document.addEventListener("astro:page-load", init);

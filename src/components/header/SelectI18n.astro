@@ -41,5 +41,8 @@ const languages = [
 </div>
 
 <script>
-  import "@preline/dropdown/index.js";
+  import("@preline/dropdown/index.js");
+  document.addEventListener("astro:page-load", async () => {
+    import("@preline/dropdown/index.js");
+  });
 </script>

@@ -54,25 +54,6 @@
     scroll-padding-top: 30px;
   }
 
-  ::view-transition-group(root) {
-    animation-timing-function: var(--expo-out);
-  }
-
-  ::view-transition-new(root) {
-    mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><defs><filter id="blur"><feGaussianBlur stdDeviation="2"/></filter></defs><circle cx="100%" cy="0" r="18" fill="var(--background)" filter="url(%23blur)"/></svg>')
-      top right / 0 no-repeat;
-    mask-origin: content-box;
-    animation: scale 1s;
-    transform-origin: top right;
-  }
-
-  ::view-transition-old(root),
-  .dark::view-transition-old(root) {
-    animation: scale 1s;
-    transform-origin: top right;
-    z-index: -1;
-  }
-
   .section_title {
     @apply my-12 ml-2 inline-flex w-full items-center text-pretty ~text-2xl/3xl font-semibold opacity-85 sm:ml-0;
   }
