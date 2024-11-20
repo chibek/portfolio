@@ -39,17 +39,3 @@ const languages = [
     }
   </div>
 </div>
-
-<script>
-  document.addEventListener("astro:page-load", async () => {
-    try {
-      // Dynamically import the dropdown module
-      const module = await import("@preline/dropdown/index.js");
-
-      // Optionally, you can use the module here if needed
-      console.log("Dropdown module loaded:", module);
-    } catch (error) {
-      console.error("Error loading dropdown module:", error);
-    }
-  });
-</script>
