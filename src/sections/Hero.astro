@@ -48,8 +48,8 @@ const t = translations.sections.hero;
               "rounded-lg text-foreground/80 transition duration-200 w-full md:w-auto flex items-center justify-center",
               "hover:bg-accent",
             ]}
-            data-tip={i18nKey}
-            data-tip-placement="bottom"
+            data-tippy-content={i18nKey}
+            data-tippy-placement="bottom"
           >
             <Icon
               name={iconKey}
@@ -65,9 +65,9 @@ const t = translations.sections.hero;
           "rounded-lg text-foreground/80 transition duration-200 w-full md:w-auto flex items-center justify-center",
           "hover:bg-accent",
         ]}
-        data-tip={t.copied}
-        data-tip-placement="bottom"
-        data-tip-click="true"
+        data-tippy-content={t.copied}
+        data-tippy-placement="bottom"
+        data-tippy-trigger="click"
       >
         <Icon
           name="lucide:mail"
@@ -84,7 +84,11 @@ const t = translations.sections.hero;
   import sal from "sal.js";
 
   document.addEventListener("astro:page-load", () => {
-    sal();
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+    if (!isMobile) {
+      sal();
+    }
   });
 
   document.addEventListener("astro:page-load", () => {

@@ -23,31 +23,18 @@ const { locale } = Astro.locals;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="description" content={description} />
+    <link rel="stylesheet" href="/node_modules/sal.js/dist/sal.css" />
     <title>{title}</title>
     <ClientRouter />
 
     <script>
-      import tippy, { type Placement } from "tippy.js";
+      import tippy from "tippy.js";
 
       document.addEventListener("astro:page-load", () => {
-        const tips = document.querySelectorAll("[data-tip]");
-        tips.forEach((t) => {
-          if (t.tagName == "SPAN" || t.tagName == "DIV") {
-            t.setAttribute("tabindex", "0");
-          }
-          const onClick =
-            t.getAttribute("data-tip-click") === "true"
-              ? "click"
-              : "mouseenter focus";
-          tippy(t, {
-            content: t.getAttribute("data-tip") || "",
-            placement:
-              (t.getAttribute("data-tip-placement") as Placement) || "top",
-            arrow: false,
-            animation: "scale",
-            duration: [250, null],
-            trigger: onClick,
-          });
+        tippy("[data-tippy-content]", {
+          arrow: false,
+          animation: "scale",
+          duration: [250, null],
         });
       });
     </script>
@@ -62,40 +49,36 @@ const { locale } = Astro.locals;
   </body>
 </html>
 <script>
-  import "preline/dist/preline.js";
+  import "@preline/dropdown/index.js";
 </script>
-<script>
-  function updatePageLinks(entry: IntersectionObserverEntry | undefined) {
-    const documentLinks = document.querySelectorAll(
-      "a[href^='#']"
-    ) satisfies NodeListOf<HTMLAnchorElement>;
+<script type="module">
+  function updatePageLinks(entry) {
+    const documentLinks = document.querySelectorAll("a[href^='#']");
     for (const link of documentLinks) {
       const [, target] = link.href.split("#");
       link.classList.toggle("active", target === entry?.target.id);
     }
   }
 
-  document.addEventListener("astro:page-load", async () => {
-    const sections = document.querySelectorAll("section[id]");
-    let lastVisibleSection: IntersectionObserverEntry | undefined;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const newLast = entries.findLast((entry) => entry.isIntersecting);
-        // If there's a new section in view, update the corresponding links.
-        if (newLast !== undefined && lastVisibleSection !== newLast) {
-          lastVisibleSection = newLast;
-          updatePageLinks(lastVisibleSection);
-        }
-      },
-      {
-        threshold: 0.3,
+  const sections = document.querySelectorAll("section[id]");
+  let lastVisibleSection;
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const newLast = entries.findLast((entry) => entry.isIntersecting);
+      // If there's a new section in view, update the corresponding links.
+      if (newLast !== undefined && lastVisibleSection !== newLast) {
+        lastVisibleSection = newLast;
+        updatePageLinks(lastVisibleSection);
       }
-    );
-
-    for (const section of sections) {
-      observer.observe(section);
+    },
+    {
+      threshold: 0.3,
     }
-  });
+  );
+
+  for (const section of sections) {
+    observer.observe(section);
+  }
 </script>
 <style is:global>
   @font-face {
@@ -103,6 +86,7 @@ const { locale } = Astro.locals;
     src: url("/fonts/Geist-Bold.woff2") format("woff2");
     font-weight: 700;
     font-style: normal;
+    font-display: swap;
   }
 
   @font-face {
@@ -110,6 +94,7 @@ const { locale } = Astro.locals;
     src: url("/fonts/Geist-Regular.woff2") format("woff2");
     font-weight: 400;
     font-style: normal;
+    font-display: swap;
   }
 
   @font-face {
@@ -117,6 +102,7 @@ const { locale } = Astro.locals;
     src: url("/fonts/Geist-SemiBold.woff2") format("woff2");
     font-weight: 600;
     font-style: normal;
+    font-display: swap;
   }
 
   @font-face {
@@ -124,5 +110,6 @@ const { locale } = Astro.locals;
     src: url("/fonts/NeutralFace-Bold.otf") format("opentype");
     font-weight: 700;
     font-style: normal;
+    font-display: swap;
   }
 </style>

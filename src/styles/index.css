@@ -1,6 +1,4 @@
 @import "./theme.css";
-@import "./normalize.css";
-@import "./sal.css";
 
 @tailwind base;
 @tailwind components;

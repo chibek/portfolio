@@ -14,6 +14,9 @@ dependencies:
   '@popperjs/core':
     specifier: ^2.11.8
     version: 2.11.8
+  '@preline/dropdown':
+    specifier: ^2.5.0
+    version: 2.5.0
   astro:
     specifier: ^5.0.0-beta.1
     version: 5.0.0-beta.7(typescript@5.6.3)
@@ -1449,6 +1452,10 @@ packages:
 
   /@popperjs/core@2.11.8:
     resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
+    dev: false
+
+  /@preline/dropdown@2.5.0:
+    resolution: {integrity: sha512-ydKGBx02eLWzmCn8gkaaTe/gXXqvkZKZCgCYCWETRdy31qhaam43hvJMcpsGOROWSjlPNBgVyGrwYdAgJUO68g==}
     dev: false
 
   /@rollup/pluginutils@5.1.3:

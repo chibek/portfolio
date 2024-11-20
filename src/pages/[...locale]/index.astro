@@ -50,12 +50,14 @@ export const getStaticPaths =
 </style>
 
 <script>
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-  const scrollToTopButton = document.querySelector("[data-scroll-to-top]");
-  scrollToTopButton?.addEventListener("click", scrollToTop);
+  document.addEventListener("astro:page-load", () => {
+    const scrollToTop = () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    };
+    const scrollToTopButton = document.querySelector("[data-scroll-to-top]");
+    scrollToTopButton?.addEventListener("click", scrollToTop);
+  });
 </script>

@@ -8,7 +8,7 @@ export default {
   content: {
     files: [
       "./src/**/*.{astro,html,md,mdx,ts,tsx}",
-      "./node_modules/preline/preline.js",
+      "./node_modules/@preline/dropdown/index.js",
     ],
     extract,
   },
