@@ -34,6 +34,10 @@ export const skills = [
   defineSkill("express"),
   defineSkill("html"),
   defineSkill("scrum"),
+  defineSkill("adaptability"),
+  defineSkill("elixir"),
+  defineSkill("phoenix"),
+  defineSkill("vue"),
 ] as const;
 
 export type SkillName = (typeof skills)[number]["name"];

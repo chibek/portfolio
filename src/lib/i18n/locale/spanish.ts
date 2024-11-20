@@ -41,6 +41,10 @@ export const spanish = {
     express: "Express",
     html: "HTML",
     scrum: "Scrum",
+    adaptability: "Adaptabilidad",
+    elixir: "Elixir",
+    phoenix: "Phoenix",
+    vue: "Vue",
   } as Skills,
   sections: {
     hero: {
@@ -58,6 +62,7 @@ export const spanish = {
       frontend: "Frontend",
       backend: "Backend",
       softSkills: "Habilidades",
+      extraSkills: "Tecnologías extra",
     },
 
     experience: {
@@ -75,13 +80,18 @@ export const spanish = {
           location: "Helsinki, Finlandia",
           startDate: "2024-01-01",
           skills: [
-            "comunicación",
+            "communication",
             "tailwindcss",
             "css",
             "azure",
             "nodejs",
             "jest",
             "gitlab",
+            "adaptability",
+            "elixir",
+            "phoenix",
+            "redux",
+            "typescript",
           ],
           description: [
             `En RELEX, mantuve y desarrollé nuevas funcionalidades para su sistema de Gestión de la Fuerza Laboral (WFM). Esto incluyó:`,
@@ -91,6 +101,7 @@ export const spanish = {
               `Aplicaciones frontend con React y Redux.`,
             ])}`,
           ],
+          link: "https://www.relexsolutions.com/es/",
         },
         blueprintGenetics: {
           title: "Consultor Fullstack",
@@ -107,6 +118,10 @@ export const spanish = {
             "php",
             "tailwindcss",
             "jest",
+            "redux",
+            "adaptability",
+            "communication",
+            "teamwork",
           ],
           description: [
             `Contribuí al sistema Nucleus de Blueprint, enfocándome en su frontend (React) y backends (PHP, Golang). Las tareas incluyeron:`,
@@ -117,6 +132,7 @@ export const spanish = {
             ])}`,
             `Logros clave: Entrega de nuevos productos, mejora en la arquitectura del frontend y optimización de la planificación de lanzamientos.`,
           ],
+          link: "https://blueprintgenetics.com/",
         },
         baronaInternal: {
           title: "Consultor Fullstack",
@@ -124,7 +140,15 @@ export const spanish = {
           location: "Helsinki, Finlandia",
           startDate: "2023-06-01",
           endDate: "2024-01-01",
-          skills: ["react", "typescript", "nodejs", "aws", "gitlab"],
+          skills: [
+            "react",
+            "typescript",
+            "nodejs",
+            "aws",
+            "gitlab",
+            "nextjs",
+            "teamwork",
+          ],
           description: [
             `Lideré un proyecto desde cero para Barona, desarrollando una plataforma con NodeJs, React y AWS. Las responsabilidades incluyeron:`,
             `${list([
@@ -133,6 +157,7 @@ export const spanish = {
             ])}`,
             `Completé el proyecto a tiempo, recibiendo elogios por la comunicación y el cumplimiento de las expectativas del cliente.`,
           ],
+          link: "https://baronanordic.com/",
         },
         baronaWeb: {
           title: "Desarrollador Frontend",
@@ -140,7 +165,14 @@ export const spanish = {
           location: "Helsinki, España",
           startDate: "2021-01-01",
           endDate: "2022-08-01",
-          skills: ["react", "typescript"],
+          skills: [
+            "react",
+            "typescript",
+            "nextjs",
+            "teamwork",
+            "nodejs",
+            "express",
+          ],
           description: [
             `Desarrollé aplicaciones web utilizando Next.js y Express. Mis contribuciones incluyeron:`,
             `${list([
@@ -149,6 +181,7 @@ export const spanish = {
               `Pruebas con Jest y colaboración estrecha con los clientes.`,
             ])}`,
           ],
+          link: "https://baronanordic.com/",
         },
         sesame: {
           title: "Desarrollador Frontend",
@@ -156,7 +189,13 @@ export const spanish = {
           location: "Valencia, España",
           startDate: "2021-01-01",
           endDate: "2022-08-01",
-          skills: ["react", "typescript"],
+          skills: [
+            "react",
+            "typescript",
+            "teamwork",
+            "analytical thinking",
+            "vue",
+          ],
           description: [
             `Lideré el desarrollo del frontend, guiando a un pequeño equipo para mejorar el rendimiento y la arquitectura de la aplicación. Contribuciones clave:`,
             `${list([
@@ -164,6 +203,7 @@ export const spanish = {
               `Integración del diseño del sistema y mentoría a desarrolladores junior.`,
             ])}`,
           ],
+          link: "https://www.sesametime.com/",
         },
         sngular: {
           title: "Desarrollador Fullstack",
@@ -171,7 +211,7 @@ export const spanish = {
           location: "Valencia, España",
           startDate: "2020-01-01",
           endDate: "2021-01-01",
-          skills: [],
+          skills: ["react", "typescript", "nodejs", "aws", "gitlab"],
           description: [
             `Trabajé en múltiples proyectos, incluyendo MSC y AECOC, proporcionando soporte de PMO y desarrollo. Áreas de enfoque:`,
             `${list([
@@ -179,6 +219,7 @@ export const spanish = {
               `Gestión simultánea de múltiples proyectos y reuniones con clientes.`,
             ])}`,
           ],
+          link: "https://www.sngular.com/",
         },
         pfs: {
           title: "Desarrollador Backend",
@@ -186,7 +227,7 @@ export const spanish = {
           location: "Valencia, España",
           startDate: "2017-01-01",
           endDate: "2020-01-01",
-          skills: ["react", "typescript"],
+          skills: ["nodejs", "typescript", "gitlab"],
           description: [
             `Desarrollé soluciones de software para el sector bancario. Responsabilidades clave:`,
             `${list([
@@ -194,6 +235,7 @@ export const spanish = {
               `Implementación de procesos ETL y trabajo con Python para tareas complejas.`,
             ])}`,
           ],
+          link: "https://www.pfsgrupo.com/",
         },
       } as Works,
     },
@@ -222,10 +264,11 @@ export const spanish = {
           programmerImage: "Programador",
           sportImage: "Deporte",
         },
-        contact: {
-          title: "Contáctame",
+        education: {
+          title: "Educación",
           description: [
-            `Si tienes alguna pregunta, , un proyecto en mente, o simplemente quieres saludar, mi correo es:`,
+            "Título de Técnico Superior, donde adquirí una comprensión integral de los aspectos teóricos y prácticos de mi campo.",
+            "También estoy comprometido con el aprendizaje continuo, dedicando tiempo cada día para mejorar mis habilidades y mantenerme actualizado con los últimos avances en el campo.",
           ],
           graduationImage: "Graduacion",
         },

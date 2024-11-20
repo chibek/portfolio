@@ -24,9 +24,9 @@ export const english = {
     mysql: "MySQL",
     git: "Git",
     docker: "Docker",
-    communication: "Comunicación",
-    "analytical thinking": "Análisis técnico",
-    teamwork: "Trabajo en equipo",
+    communication: "Communication",
+    "analytical thinking": "Technical Analysis",
+    teamwork: "Teamwork",
     azure: "Azure",
     gitlab: "GitLab",
     jest: "Jest",
@@ -35,6 +35,10 @@ export const english = {
     express: "Express",
     html: "HTML",
     scrum: "Scrum",
+    adaptability: "Adaptability",
+    elixir: "Elixir",
+    phoenix: "Phoenix",
+    vue: "Vue",
   } as Skills,
   sections: {
     hero: {
@@ -42,7 +46,7 @@ export const english = {
       id: "introduction",
       headline: `Hey! I'm Sergio, Full Stack application ${strong("developer")}.`,
       description:
-        "Specialized in game development, yet also passionate about developing any kind of software. With 6+ years of coding expertise, I am currently seeking to leverage my 4+ years of professional experience to transition into backend development.",
+        "Full-stack developer with expertise in React and Node.js, passionate about crafting efficient and scalable web applications. With 7+ years of professional experience, I have built diverse, user-focused software solutions.",
       copied: "Copied!",
     },
     technologies: {
@@ -51,7 +55,8 @@ export const english = {
       id: "technologies",
       frontend: "Frontend",
       backend: "Backend",
-      softSkills: "Habilidades",
+      softSkills: "Skills",
+      extraSkills: "Extra technologies",
     },
 
     experience: {
@@ -76,6 +81,11 @@ export const english = {
             "nodejs",
             "jest",
             "gitlab",
+            "adaptability",
+            "elixir",
+            "phoenix",
+            "redux",
+            "typescript",
           ],
           description: [
             `At RELEX, I maintained and developed new features for their Workforce Management (WFM) system. This included:`,
@@ -85,6 +95,7 @@ export const english = {
               `Frontend applications with React and Redux.`,
             ])}`,
           ],
+          link: "https://www.relexsolutions.com/es/",
         },
         blueprintGenetics: {
           title: "Fullstack Consultant",
@@ -101,6 +112,10 @@ export const english = {
             "php",
             "tailwindcss",
             "jest",
+            "redux",
+            "adaptability",
+            "communication",
+            "teamwork",
           ],
           description: [
             `Contributed to Blueprint's Nucleus system, focusing on their frontend (React) and backends (PHP, Golang). Tasks included:`,
@@ -111,6 +126,7 @@ export const english = {
             ])}`,
             `Key achievements: Delivered new products, improved frontend architecture, and enhanced release planning.`,
           ],
+          link: "https://blueprintgenetics.com/",
         },
         baronaInternal: {
           title: "Fullstack Consultant",
@@ -118,7 +134,15 @@ export const english = {
           location: "Helsinki, Finland",
           startDate: "2023-06-01",
           endDate: "2024-01-01",
-          skills: ["react", "typescript", "nodejs", "aws", "gitlab"],
+          skills: [
+            "react",
+            "typescript",
+            "nodejs",
+            "aws",
+            "gitlab",
+            "nextjs",
+            "teamwork",
+          ],
           description: [
             `Led a greenfield project for Barona, developing a platform with NodeJs, React, and AWS. Responsibilities included:`,
             `${list([
@@ -127,6 +151,7 @@ export const english = {
             ])}`,
             `Completed the project on time, with commendation for communication and meeting client expectations.`,
           ],
+          link: "https://baronanordic.com/",
         },
         baronaWeb: {
           title: "Frontend Developer",
@@ -134,7 +159,14 @@ export const english = {
           location: "Helsinki, Spain",
           startDate: "2021-01-01",
           endDate: "2022-08-01",
-          skills: ["react", "typescript"],
+          skills: [
+            "react",
+            "typescript",
+            "nextjs",
+            "teamwork",
+            "nodejs",
+            "express",
+          ],
           description: [
             `Developed web applications using Next.js and Express. Contributions included:`,
             `${list([
@@ -143,6 +175,7 @@ export const english = {
               `Testing with Jest and collaborating closely with clients.`,
             ])}`,
           ],
+          link: "https://baronanordic.com/",
         },
         sesame: {
           title: "Frontend Developer",
@@ -150,7 +183,13 @@ export const english = {
           location: "Valencia, Spain",
           startDate: "2021-01-01",
           endDate: "2022-08-01",
-          skills: ["react", "typescript"],
+          skills: [
+            "react",
+            "typescript",
+            "teamwork",
+            "analytical thinking",
+            "vue",
+          ],
           description: [
             `Led frontend development, guiding a small team to improve app performance and architecture. Key contributions:`,
             `${list([
@@ -158,6 +197,7 @@ export const english = {
               `Integrated system design and mentored junior developers.`,
             ])}`,
           ],
+          link: "https://www.sesametime.com/",
         },
         sngular: {
           title: "Fullstack Developer",
@@ -165,7 +205,7 @@ export const english = {
           location: "Valencia, Spain",
           startDate: "2020-01-01",
           endDate: "2021-01-01",
-          skills: [],
+          skills: ["react", "typescript", "nodejs", "aws", "gitlab"],
           description: [
             `Worked on multiple projects, including MSC and AECOC, providing both PMO and development support. Focus areas:`,
             `${list([
@@ -173,6 +213,7 @@ export const english = {
               `Simultaneously managing multiple projects and client meetings.`,
             ])}`,
           ],
+          link: "https://www.sngular.com/",
         },
         pfs: {
           title: "Backend Developer",
@@ -180,7 +221,7 @@ export const english = {
           location: "Valencia, Spain",
           startDate: "2017-01-01",
           endDate: "2020-01-01",
-          skills: ["react", "typescript"],
+          skills: ["nodejs", "typescript", "gitlab"],
           description: [
             `Developed software solutions for the banking sector. Key responsibilities:`,
             `${list([
@@ -188,6 +229,7 @@ export const english = {
               `Implemented ETL processes and worked with Python for complex tasks.`,
             ])}`,
           ],
+          link: "https://www.pfsgrupo.com/",
         },
       } as Works,
     },
@@ -216,10 +258,11 @@ export const english = {
           programmerImage: "Programmer",
           sportImage: "Sport",
         },
-        contact: {
-          title: "What I'm looking for?",
+        education: {
+          title: "Education",
           description: [
-            `I'm looking good environment flexibility and passion to develop some product`,
+            `Higher Technical Certificate, where I gained a comprehensive understanding of the theoretical and practical aspects of my field.`,
+            "I am also committed to continuous self-learning, dedicating time every day to improve my skills and stay updated with the latest developments in the field.",
           ],
           graduationImage: "Graduation",
         },

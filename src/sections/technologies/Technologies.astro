@@ -22,6 +22,15 @@ const softSkills: SkillName[] = [
   "communication",
   "analytical thinking",
   "scrum",
+  "adaptability",
+];
+
+const extraSkills: SkillName[] = [
+  "elixir",
+  "redux",
+  "php",
+  "nextjs",
+  "phoenix",
 ];
 
 const { translations } = Astro.locals;
@@ -42,5 +51,6 @@ const t = translations.sections.technologies;
     <MainTechs title={t.frontend} skills={frontend} />
     <MainTechs title={t.backend} skills={backend} />
     <MainTechs title={t.softSkills} skills={softSkills} />
+    <MainTechs title={t.extraSkills} skills={extraSkills} />
   </div>
 </section>

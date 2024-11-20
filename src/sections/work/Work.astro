@@ -12,6 +12,7 @@ export interface WorkProps {
   endDate?: string;
   description: string[];
   skills: SkillName[];
+  link: string;
 }
 
 interface Props extends WorkProps {
@@ -26,48 +27,53 @@ const {
   endDate,
   description,
   skills,
+  link,
   class: className,
 } = Astro.props;
 const { translations } = Astro.locals;
 const t = translations.sections.experience;
 ---
 
-<article
-  class={cn(
-    "prose dark:prose-invert max-w-full w-full hover:bg-gray-200/30 group rounded-lg ~px-4/8 ~py-2/4 transation-all duration-300 cursor-pointer",
-    className
-  )}
-  data-sal="slide-up"
-  data-sal-delay="300"
-  data-sal-duration="300"
-  data-sal-easing="ease-out-cubic"
->
-  <header class="mb-8 space-y-3">
-    <div class="flex items-center gap-x-1">
-      <h3 class="my-0 group-hover:text-primary transition-colors duration-300">
-        {title}{", "}{company}
-      </h3>
-      <ArrowUpRight
-        strokeWidth="1.5"
-        class="size-6 group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300 text-muted-foreground/70"
-      />
+<a target="_blank" href={link}>
+  <article
+    class={cn(
+      "prose dark:prose-invert max-w-full w-full hover:bg-gray-200/30 group rounded-lg ~px-4/8 ~py-2/4 transation-all duration-300 cursor-pointer",
+      className
+    )}
+    data-sal="slide-up"
+    data-sal-delay="300"
+    data-sal-duration="300"
+    data-sal-easing="ease-out-cubic"
+  >
+    <header class="mb-8 space-y-3">
+      <div class="flex items-center gap-x-1">
+        <h3
+          class="my-0 group-hover:text-primary transition-colors duration-300"
+        >
+          {title}{", "}{company}
+        </h3>
+        <ArrowUpRight
+          strokeWidth="1.5"
+          class="size-6 group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300 text-muted-foreground/70"
+        />
+      </div>
+      <div
+        class="text-pretty text-base font-semibold text-muted-foreground/70 transition-colors duration-200"
+      >
+        <span>{location} </span>
+        <span class="opacity-50">{" | "}</span>
+        <span>
+          <time datetime={startDate}> {startDate} </time>
+          {" - "}
+          <time datetime={endDate}> {endDate ? endDate : `${t.present}`} </time>
+        </span>
+      </div>
+    </header>
+    <div>
+      {description.map((paragraph) => <p set:html={paragraph} />)}
     </div>
-    <div
-      class="text-pretty text-base font-semibold text-muted-foreground/70 transition-colors duration-200"
-    >
-      <span>{location} </span>
-      <span class="opacity-50">{" | "}</span>
-      <span>
-        <time datetime={startDate}> {startDate} </time>
-        {" - "}
-        <time datetime={endDate}> {endDate ? endDate : `${t.present}`} </time>
-      </span>
-    </div>
-  </header>
-  <div>
-    {description.map((paragraph) => <p set:html={paragraph} />)}
-  </div>
-  <footer class="flex flex-wrap gap-2">
-    {skills.map((skill) => <WorkSkill skillName={skill} />)}
-  </footer>
-</article>
+    <footer class="flex flex-wrap gap-2">
+      {skills.map((skill) => <WorkSkill skillName={skill} />)}
+    </footer>
+  </article>
+</a>
