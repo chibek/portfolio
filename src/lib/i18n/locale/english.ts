@@ -9,6 +9,9 @@ export const english = {
     name: "English",
     locale: "en",
     code: "en-US",
+    description:
+      "Fullstack sofware developer with more than 6 years of experience",
+    title: "Sergio Beleña - Portfolio",
   },
   skills: {
     aws: "AWS",
@@ -272,5 +275,9 @@ export const english = {
         },
       },
     },
+  },
+  footer: {
+    builtWith: "Built with ❤️ by",
+    using: "using",
   },
 } as const;

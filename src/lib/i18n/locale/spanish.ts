@@ -15,6 +15,9 @@ export const spanish = {
     name: "Español",
     locale: "es",
     code: "es-ES",
+    description:
+      "Desarrollador de software FullStack con más de 6 años de experiencia",
+    title: "Sergio Beleña - Portafolio",
   },
   skills: {
     aws: "AWS",
@@ -278,5 +281,9 @@ export const spanish = {
         },
       },
     },
+  },
+  footer: {
+    builtWith: "Construido con ❤️ por",
+    using: "utilizando",
   },
 } as const;

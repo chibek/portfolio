@@ -1,9 +1,16 @@
+---
+const { translations } = Astro.locals;
+const t = translations.footer;
+---
+
 <footer class="border-t mt-10 px-5 pt-5 text-center">
-  Built with ❤️ by <a
+  {t.builtWith}
+  <a
     class="hover:underline font-bold text-primary"
     href="https://github.com/chibek">Sergio Belena</a
-  > using <a
-    class="hover:underline font-bold text-primary"
-    href="https://astro.build">Astro</a
+  >
+  {t.using}
+  <a class="hover:underline font-bold text-primary" href="https://astro.build"
+    >Astro</a
   >
 </footer>
