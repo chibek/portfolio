@@ -44,7 +44,7 @@ export const SelectI18N = () => {
       {isOpen && (
         <div
           ref={dropdownRef}
-          className="origin-top-right absolute right-0 mt-2 overflow-hidden rounded-md shadow-lg border"
+          className="origin-top-right absolute right-0 mt-2 overflow-hidden rounded-md shadow-lg border bg-background"
         >
           {languages.map((language) => (
             <a
