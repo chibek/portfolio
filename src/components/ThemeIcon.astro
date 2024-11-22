@@ -12,15 +12,18 @@ interface Props {
     display: none;
   }
 </style>
-<script is:inline>
+<!-- <script is:inline>
   document
     .getElementById("setTheme")
-    ?.addEventListener("click", () => theme.setTheme("auto"));
+    .addEventListener("click", () => theme.setTheme("auto"));
+  const themeElement = document.getElementById("getTheme");
 
-  document.getElementById("getTheme").innerHTML = theme.getTheme();
+  if (themeElement) {
+    themeElement.innerHTML = theme.getTheme();
+  }
 
   document.addEventListener("theme-changed", () => {
     const resultsElem = document.getElementById("getTheme");
     resultsElem && (resultsElem.innerHTML = theme.getTheme());
   });
-</script>
+</script> -->
