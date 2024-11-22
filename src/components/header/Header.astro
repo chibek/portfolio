@@ -15,12 +15,12 @@ interface Props {
 const { class: className } = Astro.props;
 ---
 
-<header class={cn("h-header", className)}>
+<header class={cn("h-header min-w-4xl", className)}>
   <div
     class="flex justify-between ~max-w-4xl/7xl items-center mx-auto h-full ~px-4/8"
   >
     <PageLinks pages={sections} />
-    <div class="flex items-center ~gap-x-4/12 ~px-8/12">
+    <div class="flex items-center ~gap-x-6/12 ~px-2/12">
       <SelectI18N client:idle />
       <ThemeIcon />
     </div>

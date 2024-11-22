@@ -11,7 +11,7 @@ interface Props {
 const { pages, class: className } = Astro.props;
 ---
 
-<nav class={cn("grid grid-cols-4 md:grid-cols-3 items-center ", className)}>
+<nav class={cn("grid grid-cols-1 md:grid-cols-3 items-center ", className)}>
   <ul class="flex space-x-4 col-span-2 lg:col-span-1">
     {
       pages.map(({ name, href, icon }) => {
