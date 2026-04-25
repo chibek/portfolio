@@ -16,6 +16,7 @@ export const skills = [
   defineSkill("css"),
   defineSkill("php"),
   defineSkill("react"),
+  defineSkill("react-native"),
   defineSkill("nextjs"),
   defineSkill("nodejs"),
   defineSkill("astro"),
@@ -29,6 +30,7 @@ export const skills = [
   defineSkill("azure"),
   defineSkill("gitlab"),
   defineSkill("jest"),
+  defineSkill("cypress"),
   defineSkill("redux"),
   defineSkill("postgressql"),
   defineSkill("express"),
@@ -38,6 +40,9 @@ export const skills = [
   defineSkill("elixir"),
   defineSkill("phoenix"),
   defineSkill("vue"),
+  defineSkill("java"),
+  defineSkill("python"),
+  defineSkill("symfony"),
 ] as const;
 
 export type SkillName = (typeof skills)[number]["name"];
